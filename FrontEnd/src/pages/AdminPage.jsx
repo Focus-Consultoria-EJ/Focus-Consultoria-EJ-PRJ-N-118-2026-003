@@ -6,16 +6,16 @@ function InputPassword(){
     const [showPassword, setShowPassword] = useState(false);
     return (
         <div className="password-wrapper">
-                            <input type={showPassword ? 'text' : 'password'} placeholder="Digite a senha"/>
-                            <button
-                                type="button"
-                                className="toggle-password"
-                                onClick={() => setShowPassword(!showPassword)}
-                                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
-                            >
-                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                            </button>
-                        </div>
+            <input type={showPassword ? 'text' : 'password'} placeholder="Digite a senha" required/>
+            <button
+                type="button"
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+            >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+        </div>
     )
 }
 
@@ -61,21 +61,21 @@ function Admin() {
                
 
                 {showAdminForm && (
-                    <div className='input-group'>
+                    <form className='input-group'>
                         <label className='labels'>Admin Atual</label>
-                        <input type='email' placeholder='Digite seu email' />
+                        <input type='email' placeholder='Digite seu email' required />
 
                         <label>Novo Admin</label>
-                        <input type='email' placeholder='Digite seu email' />
+                        <input type='email' placeholder='Digite seu email' required/>
 
                         <label>Confirmar Novo Admin</label>
-                        <input type='email' placeholder='Digite seu email' />
+                        <input type='email' placeholder='Digite seu email' required />
 
-                        <button className='confirm'>Confirmar</button>
-                    </div>
+                        <button>Confirmar</button>
+                    </form>
                     )}  
                 {showAccessForm && (
-                    <div className='input-group'>
+                    <form className='input-group'>
                         <label>Senha Geral Atual</label>
                         <InputPassword />
 
@@ -86,11 +86,11 @@ function Admin() {
                         <InputPassword />
 
                         <button>Confirmar</button>
-                    </div>
+                    </form>
                     )} 
                     
                 {showAdminPasswordForm && (
-                    <div className='input-group'>
+                    <form className='input-group'>
                         <label>Senha Admin Atual</label>
                         <InputPassword />
 
@@ -101,7 +101,7 @@ function Admin() {
                         <InputPassword />
 
                         <button className='confirm'>Confirmar</button>
-                    </div>
+                    </form>
                     )}  
             
         </div>

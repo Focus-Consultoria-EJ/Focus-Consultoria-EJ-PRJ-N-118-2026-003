@@ -38,6 +38,7 @@ h1{
 }
 
 .input-group input {
+    outline: none;
     background-color: #eef2f5;
     padding: 12px;
     border-radius: 50px;
@@ -46,6 +47,9 @@ h1{
     color: var(--secondary-color);
 }
 
+input:focus {
+    border: 2px solid var(--secondary-color);
+}
 .input-group label{
     display: flex;
     justify-content: left;
