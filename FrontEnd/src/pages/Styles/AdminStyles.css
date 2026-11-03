@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+@import './index.css';
+
+h1{
+    color:var(--secondary-color);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--secondary-color);
+}
+.selected-button{
+    width: 100%;
+    background-color: #e0e0e0;
+    color: var(--secondary-color);
+}
+
+.selected-button.active {
+    background-color: var(--primary-color);
+    color: white
+}
+.select-buttons{
+    display: flex;
+}
+
+.input-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.input-group input {
+    background-color: #eef2f5;
+    padding: 12px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.input-group label{
+    display: flex;
+    justify-content: left;
+}
+
+.input-group button{
+    margin-top: 15px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+button:hover {
+   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-box {
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  max-width: 450px;
+  gap: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  
+}
+.password-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-100%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 70px 16px 16px;
+  }
+
+  .container h1 {
+    font-size: 36px;
+  }
+  
+  .form-box {
+    padding: 16px;
+    border-radius: 24px;
+  }
+}
