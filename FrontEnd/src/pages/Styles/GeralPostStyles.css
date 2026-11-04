@@ -1,9 +1,17 @@
+.posts-page,
+.posts-page *,
+.posts-page *::before,
+.posts-page *::after {
+  box-sizing: border-box;
+}
+
 .posts-page {
   position: fixed; 
   top: 0;
   left: 0;
   width: 100vw; 
   height: 100vh;
+  text-align: left;
   background-color: #f1f2f7;
   overflow-y: auto; 
   overflow-x: hidden;
@@ -42,7 +50,8 @@
 
 .posts-page .post-tools {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 14px;
@@ -60,9 +69,20 @@
   border: 0;
 }
 
+.posts-page .search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  height: 17px;
+  width: 17px;
+}
+
 .posts-page .search-field {
+  position: relative;
   display: block;
-  width: min(100%, 240px);
+  width: min(100%, 350px);
 }
 
 .posts-page .search-field input {
@@ -167,6 +187,7 @@
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 17px;
+  padding-left: 13px;
 }
 
 .posts-page .tab {
@@ -198,6 +219,7 @@
 
 .posts-page table {
   width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
   table-layout: fixed;
   font-size: 13px;
@@ -206,7 +228,7 @@
 .posts-page th,
 .posts-page td {
   padding: 12px;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
 }
 
@@ -221,27 +243,27 @@
 
 .posts-page th:first-child,
 .posts-page td:first-child {
-  width: 42%;
+  text-align: left;
 }
 
 .posts-page th:nth-child(2),
 .posts-page td:nth-child(2) {
-  width: 13%;
+  width: 130px;
 }
 
 .posts-page th:nth-child(3),
 .posts-page td:nth-child(3) {
-  width: 12%;
+  width: 120px;
 }
 
 .posts-page th:nth-child(4),
 .posts-page td:nth-child(4) {
-  width: 21%;
+  width: 190px;
 }
 
 .posts-page th:last-child,
 .posts-page td:last-child {
-  width: 12%;
+  width: 90px;
 }
 
 .posts-page tbody tr {
@@ -254,8 +276,7 @@
 }
 
 .posts-page .post-title,
-.posts-page .category,
-.posts-page .view-button {
+.posts-page .category {
   color: #008fbd;
 }
 
@@ -268,8 +289,7 @@
   text-align: left;
 }
 
-.posts-page .post-title:hover,
-.posts-page .view-button:hover {
+.posts-page .post-title:hover {
   text-decoration: underline;
 }
 
@@ -285,14 +305,18 @@
 }
 
 .posts-page .status-rascunho {
-  color: #656a7a;
-  background: #e1e3e9;
+  color: #4f5566;
+  background: #e9ebf0;
 }
 
-.posts-page .status-agendado,
 .posts-page .status-publicado {
-  color: #008abb;
-  background: #dff2f8;
+  color: #1f6a3b;
+  background: #dcf3e2;
+}
+
+.posts-page .status-agendado {
+  color: #7a5800;
+  background: #fcf0c8;
 }
 
 .posts-page .date-cell {
@@ -301,10 +325,9 @@
 
 .posts-page .actions-cell {
   white-space: normal;
-  text-align: right;
+  text-align: center;
 }
 
-.posts-page .view-button,
 .posts-page .delete-button {
   padding: 3px 5px;
   border: 0;
@@ -330,23 +353,72 @@
    RESPONSIVIDADE (Tablets e Celulares)
    ========================================================================== */
 
-/* Telas de até 768px (Tablets e Celulares) */
+@media (max-width: 1024px) {
+  .posts-page .content {
+    padding: 28px 24px;
+  }
+
+  .posts-page table {
+    min-width: 480px;
+  }
+
+  .posts-page th,
+  .posts-page td {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .posts-page th:first-child,
+  .posts-page td:first-child {
+    padding-left: 12px;
+  }
+
+  .posts-page th:nth-child(2),
+  .posts-page td:nth-child(2) {
+    width: 100px;
+  }
+
+  .posts-page th:nth-child(3),
+  .posts-page td:nth-child(3) {
+    width: 108px;
+  }
+
+  .posts-page th:nth-child(4),
+  .posts-page td:nth-child(4) {
+    width: 100px;
+  }
+
+  .posts-page th:last-child,
+  .posts-page td:last-child {
+    width: 76px;
+  }
+}
+
+@media (max-width: 900px) {
+  .posts-page .sidebar {
+    width: 205px;
+  }
+
+  .posts-page .content {
+    width: calc(100% - 205px);
+    margin-left: 205px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* 1. Layout geral passa a empilhar a sidebar acima do conteúdo */
   .posts-page {
     position: relative;
     width: 100%;
+    height: auto;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* 2. Sidebar deixa de ser fixa e vira um cabeçalho no topo */
   .posts-page .sidebar {
     position: relative;
     width: 100%;
     height: auto;
     padding: 16px;
-    box-sizing: border-box;
   }
 
   .posts-page .sidebar nav {
@@ -362,26 +434,22 @@
     justify-content: center;
   }
 
-  /* 3. Área de conteúdo perde a margem esquerda e usa padding menor */
   .posts-page .content {
     width: 100%;
+    min-height: auto;
     margin-left: 0;
     padding: 20px 16px;
   }
 
-  /* 4. Ferramentas (Busca e Botão de Adicionar) em coluna inteira */
   .posts-page .post-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .posts-page .search-field {
     width: 100%;
   }
 
-  .posts-page .search-field,
-  .posts-page .search-field input,
-  .posts-page .add-button {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* 5. Abas de navegação centralizadas */
   .posts-page .tabs {
     justify-content: flex-start;
     overflow-x: auto;
@@ -389,17 +457,72 @@
     padding-bottom: 5px;
   }
 
-  /* 6. Tabela com scroll horizontal interno (previne estourar a tela) */
   .posts-page .table-card {
     border-radius: 16px;
   }
+}
 
+@media (max-width: 560px) {
   .posts-page table {
-    min-width: 650px; /* Garante tamanho mínimo legível para as colunas */
+    min-width: 0;
+  }
+
+  .posts-page thead {
+    display: none;
+  }
+
+  .posts-page table,
+  .posts-page tbody,
+  .posts-page tr {
+    display: block;
+  }
+
+  .posts-page tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .posts-page tbody tr {
+    padding: 14px 16px;
+  }
+
+  .posts-page tbody td:nth-child(n) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: auto;
+    height: auto;
+    padding: 6px 0;
+    text-align: right;
+  }
+
+  .posts-page tbody td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    font-weight: 600;
+    color: #24294f;
+  }
+
+  .posts-page tbody td:first-child {
+    display: block;
+    text-align: left;
+    padding-bottom: 8px;
+  }
+
+  .posts-page tbody td:first-child::before {
+    content: none;
+  }
+
+  .posts-page tbody td.actions-cell {
+    justify-content: flex-end;
+    padding-top: 10px;
+  }
+
+  .posts-page tbody td.actions-cell::before {
+    content: none;
   }
 }
 
-/* Telas muito pequenas (Celulares até 480px) */
 @media (max-width: 480px) {
   .posts-page h1 {
     font-size: 20px;

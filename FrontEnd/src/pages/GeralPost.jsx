@@ -146,6 +146,26 @@ export default function GeralPost() {
           <div className="post-tools">
             <label className="search-field">
               <span className="sr-only">Pesquisar posts</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="search-icon"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M16.5 16.5L21 21"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
               <input
                 type="search"
                 placeholder="Pesquisar posts"
@@ -211,11 +231,6 @@ export default function GeralPost() {
                         {post.date}
                       </td>
                       <td className="actions-cell">
-                        {post.status === 'Publicado' && (
-                          <button className="view-button" type="button">
-                            Ver
-                          </button>
-                        )}
                         <button
                           className="delete-button"
                           type="button"
