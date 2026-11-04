@@ -5,6 +5,18 @@ h1{
     color:var(--secondary-color);
 }
 
+.logo img{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 220px;
+  height: 60px;
+}
+
+.logo{
+  margin-bottom: 50px;
+}
+
 .container {
   position: relative;
   display: flex;
@@ -115,6 +127,14 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .logo img{
+    width: 150px;
+    height: 40px;
+    top: 16px;
+    left: 16px;
+    
+  }
+
   .container {
     padding: 70px 16px 16px;
   }

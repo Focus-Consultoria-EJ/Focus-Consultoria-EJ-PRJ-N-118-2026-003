@@ -18,6 +18,9 @@ function Admin() {
     const [showAdminPassword3, setShowAdminPassword3] = useState(false);
   return (
     <div className='container'>
+        <div className='logo'>
+            <img src="./src/assets/expandJRLogoAzul.png" alt="Logo azul da ExpandJR" />
+        </div>
         <h1>Página Admin</h1>
         <div className='form-box'>
 
