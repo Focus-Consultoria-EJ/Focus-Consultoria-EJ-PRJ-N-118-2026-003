@@ -1,7 +1,5 @@
-import Admin from "./pages/AdminPage.jsx";
+import RegisterPage from './pages/RegisterPage.jsx'
 
-function App() {
-  return <Admin />;
+export default function App() {
+  return <RegisterPage />
 }
-
-export default App;
