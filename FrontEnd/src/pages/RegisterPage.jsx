@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/ExpandBranco.png';
 
-function App() {
+function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -43,4 +43,4 @@ function App() {
     </div>
   );
 }
-export default App;
+export default RegisterPage;
