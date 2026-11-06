@@ -96,7 +96,7 @@ function Logo() {
   );
 }
 
-export default function GeralPost() {
+ function GeralPost() {
   const [posts, setPosts] = useState(initialPosts);
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState('Todos');
@@ -257,3 +257,4 @@ export default function GeralPost() {
     </div>
   );
 }
+export default GeralPost;
