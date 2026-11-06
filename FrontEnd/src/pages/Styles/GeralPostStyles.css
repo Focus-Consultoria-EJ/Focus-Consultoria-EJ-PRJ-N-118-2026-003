@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.logo{
+margin-top: -20px;
+}
+
 .posts-page {
   position: fixed; 
   top: 0;
@@ -109,7 +113,7 @@
 .posts-page .sidebar nav {
   display: grid;
   gap: 3px;
-  margin-top: 36px;
+  margin-top: 50px;
 }
 
 .posts-page .nav-item {
@@ -207,10 +211,9 @@
 
 .posts-page .table-card {
   overflow: hidden;
-  border: 1px solid #d8dbe3;
+
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 15px 23px rgb(50 58 83 / 14%);
 }
 
 .posts-page .table-scroll {
@@ -453,7 +456,7 @@
   .posts-page .tabs {
     justify-content: flex-start;
     overflow-x: auto;
-    white-space: nowrap;
+    
     padding-bottom: 5px;
   }
 
@@ -536,4 +539,11 @@
   .posts-page .nav-item {
     width: 100%;
   }
+}
+
+.posts-page .tab,
+.posts-page .post-title,
+.posts-page .delete-button {
+  border-radius: 0;
+  box-shadow: none;
 }

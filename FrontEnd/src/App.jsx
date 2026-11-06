@@ -1,4 +1,6 @@
 import RegisterPage from './pages/RegisterPage.jsx'
+import AdminLogin from './pages/AdminLogin.jsx'
+import AdminPage from './pages/AdminPage.jsx'
 import GeralPosts from './pages/GeralPosts.jsx'
 import QuemSomos from './pages/QuemSomos.jsx'
 import Contato from './pages/Contato.jsx'
@@ -17,6 +19,15 @@ const router = createBrowserRouter([
   path: '/login',
   element: <RegisterPage />,
 },
+{
+  path: '/admin-login',
+  element: <AdminLogin />,
+},
+{
+  path: '/admin-page',
+  element: <AdminPage />,
+},
+
 {
   path: '/geral-posts',
   element: <GeralPosts />,

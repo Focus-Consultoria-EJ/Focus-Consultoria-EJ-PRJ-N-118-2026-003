@@ -80,12 +80,6 @@ function Logo() {
     <div
       className="logo"
       aria-label="Expand Jr"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: '30px',
-        padding: '0 10px',
-      }}
     >
       <img
         src={ExpandBranco}
