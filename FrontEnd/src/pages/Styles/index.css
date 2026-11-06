@@ -2,3 +2,17 @@ body {
   background-color: #f4f9f8;
   margin: 0;
 }
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --primary-color:#21244d;
+  --secondary-color:#1a202c;
+  
+}
