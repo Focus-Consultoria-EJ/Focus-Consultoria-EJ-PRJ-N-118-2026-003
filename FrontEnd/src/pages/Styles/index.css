@@ -1,5 +1,5 @@
 body {
-  background-color: #f4f9f8;
+  background-color: var(--bg);
   margin: 0;
 }
 
@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-  --bg: #ffffff;
+  --bg: #f4f9f8;
   --primary-color:#21244d;
   --secondary-color:#1a202c;
   
