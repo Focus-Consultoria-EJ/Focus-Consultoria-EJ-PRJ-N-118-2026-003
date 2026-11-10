@@ -1,0 +1,148 @@
+.app-sidebar,
+.app-sidebar *,
+.app-sidebar *::before,
+.app-sidebar *::after {
+  box-sizing: border-box;
+}
+
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  text-align: left;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  padding: 23px 19px;
+  color: #fff;
+  background: #252a5a;
+}
+
+.app-sidebar-logo {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.app-sidebar-logo img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+}
+
+.app-sidebar-nav {
+  display: grid;
+  gap: 3px;
+  margin-top: 36px;
+}
+
+.app-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 24px;
+  color: #fff;
+  background: transparent;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+
+.app-sidebar-item:hover,
+.app-sidebar-item:focus-visible {
+  background: rgb(255 255 255 / 12%);
+  outline: none;
+}
+
+.app-sidebar-item-active {
+  background: rgb(255 255 255 / 13%);
+}
+
+.app-sidebar-item svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.app-sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.app-sidebar-email {
+  overflow-wrap: anywhere;
+  opacity: 0.9;
+}
+
+.app-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.app-sidebar-logout svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .app-sidebar {
+    width: 205px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .app-sidebar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .app-sidebar-item {
+    width: auto;
+    justify-content: center;
+  }
+
+  .app-sidebar-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-sidebar-nav {
+    flex-direction: column;
+  }
+
+  .app-sidebar-item {
+    width: 100%;
+  }
+}
