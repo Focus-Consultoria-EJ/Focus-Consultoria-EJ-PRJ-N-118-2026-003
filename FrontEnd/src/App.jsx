@@ -1,4 +1,4 @@
-import RegisterPage from './pages/RegisterPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
 import AdminLogin from './pages/AdminLogin.jsx'
 import AdminPage from './pages/AdminPage.jsx'
 import GeralPosts from './pages/GeralPosts.jsx'
@@ -7,6 +7,11 @@ import Contato from './pages/Contato.jsx'
 import Solucoes from './pages/Solucoes.jsx'
 import Blog from './pages/Blog.jsx'
 import PaginaInicial from './pages/PaginaInicial.jsx'
+import CriarPost from './pages/CriarPost.jsx'
+
+
+
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -17,7 +22,7 @@ const router = createBrowserRouter([
 
 {
   path: '/login',
-  element: <RegisterPage />,
+  element: <LoginPage />,
 },
 {
   path: '/admin-login',
@@ -32,6 +37,12 @@ const router = createBrowserRouter([
   path: '/geral-posts',
   element: <GeralPosts />,
 },
+
+{
+  path: '/criar-post',
+  element: <CriarPost />,
+},
+
 {
   path: '/quem-somos',
   element: <QuemSomos />,

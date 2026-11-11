@@ -8,7 +8,7 @@ function Contato({ mudarPagina }) {
       
     <div className="container">
       <h1>ENTRE EM CONTATO</h1>
-      <p>Conte um pouco sobre o seu desafio e retornaremos em até 2 dias úteis.</p>
+      <p>Conte um pouco sobre o seu desafio e retornaremos o mais breve possível.</p>
       <form className="form-box">
         <div className="input-group">
           <label>Nome</label>

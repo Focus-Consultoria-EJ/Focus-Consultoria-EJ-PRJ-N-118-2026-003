@@ -1,10 +1,10 @@
-import './Styles/RegisterStyles.css';
+import './Styles/LoginStyles.css';
 import './Styles/index.css';
 import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/ExpandBranco.png';
 
-function RegisterPage() {
+function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -15,8 +15,8 @@ function RegisterPage() {
         aria-label="Logo da Expand Jr."
         style={{ maskImage: `url(${logo})`, WebkitMaskImage: `url(${logo})` }}
       />
-      <h1>Login</h1>
-      <p>Área da equipe da Expand Jr.</p>
+      <h1>Login </h1>
+      <p>Área da equipe Expand Jr.</p>
       <div className="form-box">
         <div className="input-group">
           <label htmlFor="senha">Senha</label>
@@ -43,4 +43,4 @@ function RegisterPage() {
     </div>
   );
 }
-export default RegisterPage;
+export default LoginPage;
