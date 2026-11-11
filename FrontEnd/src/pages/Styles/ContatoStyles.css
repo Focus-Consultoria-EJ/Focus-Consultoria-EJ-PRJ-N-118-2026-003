@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+@import './index.css';
+
+.container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0px;
+  padding: 90px 20px 20px; 
+  color: var(--secondary-color);
+}
+.container h1 {
+  color: var(--primary-color);
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.container p {
+  color: #718096;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-box {
+  background-color: white;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px; 
+  gap: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.input-group label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea {
+  background-color: var(--bg);
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #4a505885;
+}
+
+.input-group textarea {
+  border-radius: 20px;
+  resize: none;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary.full {
+  justify-self: start; 
+  padding: 12px 24px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 42px;
+  }
+  .input-group input::placeholder,
+  .input-group textarea::placeholder {
+  font-size: 12px;
+ }
+}
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 70px 16px 16px;
+  }
+
+  .container h1 {
+    font-size: 32px;
+  }
+
+  .form-box {
+    padding: 16px;
+    border-radius: 24px;
+    grid-template-columns: 1fr;
+  }
+  .input-group input::placeholder,
+  .input-group textarea::placeholder {
+  font-size: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+    .container h1 {
+    font-size: 25px;
+  }
+
+}
