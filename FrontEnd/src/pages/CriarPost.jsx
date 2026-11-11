@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Sidebar from '../components/Sidebar/Sidebar';
 import './Styles/CriarPostStyles.css';
+import MarkdownPreview from '../components/MarkdownPreview/MarkdownPreview.jsx';
 
 const USER_EMAIL = 'usuario@exemplo.com';
 const CATEGORIES = ['Comércio Exterior', 'Cultura e RI', 'Geopolítica', 'Notícias', 'Sem categoria'];
@@ -43,7 +44,7 @@ function PublishCard({ canPublish, onDraft, onPublish }) {
         <p className="criar-post-meta-row"><EyeIcon />Visibilidade: <strong>Público</strong></p>
         <p className="criar-post-meta-row">
           <CalendarIcon />Publicar <strong>imediatamente</strong>
-          <a className="criar-post-link" href="#editar" onClick={(e) => e.preventDefault()}>Editar</a>
+         <button type="button" className="criar-post-link-btn" onClick={() => console.log('Editar data')}>Editar</button>
         </p>
         <div className="criar-post-publish-actions">
           <button type="button" className="criar-post-btn-publish" disabled={!canPublish} onClick={onPublish}>
@@ -76,16 +77,37 @@ function CategoriesCard({ category, onChange }) {
 
 /* ---------- Cartão "Imagem de capa" ---------- */
 function CoverImageCard() {
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      console.log('Imagem selecionada:', file);
+    }
+  };
+
   return (
     <section className="criar-post-card">
       <h2 className="criar-post-card-title">Imagem de capa</h2>
       <div className="criar-post-card-body">
-        <a className="criar-post-link criar-post-upload" href="#enviar" onClick={(e) => e.preventDefault()}>
-          <ImageIcon />Enviar imagem
-        </a>
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          accept="image/*"
+          style={{ display: 'none' }}
+          id="cover-image-input"
+        />
+        <button
+          type="button"
+          className="criar-post-link-btn criar-post-upload"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <ImageIcon /> Enviar imagem
+        </button>
       </div>
     </section>
-  );
+  )
 }
 
 /* ---------- Página ---------- */
@@ -97,12 +119,18 @@ export default function CriarPost() {
   const [category, setCategory] = useState('Sem categoria');
   const [tab, setTab] = useState('escrever'); // 'escrever' | 'visualizar'
 
-  // Valor derivado: contagem de palavras
-  const words = content.trim() === '' ? 0 : content.trim().split(/\s+/).length;
-  const canPublish = title.trim() !== '';
+ // 1. Remove marcadores comuns de Markdown e caracteres especiais isolados
+const cleanContent = content
+  .replace(/^#{1,6}\s+/gm, '') 
+  .replace(/[*_~`>#\-+]/g, ' ') 
+  .trim();
 
-  const save = (status) => console.log({ status, title, slug, content, summary, category });
+// 2. Contagem de palavras sobre o texto limpo
+const words = cleanContent === '' ? 0 : cleanContent.split(/\s+/).filter(word => word.length > 0).length;
 
+const canPublish = title.trim() !== '';
+
+const save = (status) => console.log({ status, title, slug, content, summary, category, words });
   return (
     <div className="criar-post-page">
       <Sidebar userEmail={USER_EMAIL} onLogout={() => console.log('Sair')} />
@@ -123,22 +151,50 @@ export default function CriarPost() {
             <section className="criar-post-editor">
               <div className="criar-post-editor-header">
                 <span>Conteúdo</span>
-                <div className="criar-post-tabs" role="tablist" aria-label="Modo do editor">
-                  <button type="button" role="tab" aria-selected={tab === 'escrever'}
-                    className="criar-post-tab" onClick={() => setTab('escrever')}>Escrever</button>
-                  <button type="button" role="tab" aria-selected={tab === 'visualizar'}
-                    className="criar-post-tab" onClick={() => setTab('visualizar')}>Visualizar</button>
+                <div className="criar-post-tabs" role="tablist" aria-label="Modo do Editor">
+                  <button
+                    type="button"
+                    role="tab"
+                    id="tab-escrever"
+                    aria-selected={tab === 'escrever'}
+                    aria-controls="panel-escrever"
+                    className="criar-post-tab"
+                    onClick={() => setTab('escrever')}
+                  >
+                    Escrever
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    id="tab-visualizar"
+                    aria-selected={tab === 'visualizar'}
+                    aria-controls="panel-visualizar"
+                    className="criar-post-tab"
+                    onClick={() => setTab('visualizar')}
+                  >
+                    Visualizar
+                  </button>
                 </div>
               </div>
               {tab === 'escrever' ? (
-                <>
+                <div
+                  id="panel-escrever"
+                  role="tabpanel"
+                  aria-labelledby="tab-escrever"
+                >
                   <label className="criar-post-sr-only" htmlFor="criar-post-content">Conteúdo</label>
-                  {/* TODO: editor Tiptap */}
                   <textarea id="criar-post-content" className="criar-post-textarea"
                     placeholder={PLACEHOLDER} value={content} onChange={(e) => setContent(e.target.value)} />
-                </>
+                </div>
               ) : (
-                <div className="criar-post-preview">{content || 'Nada para visualizar.'}</div>
+                <div
+                  id="panel-visualizar"
+                  role="tabpanel"
+                  aria-labelledby="tab-visualizar"
+                  className="criar-post-preview"
+                >
+                  {content.trim() ? <MarkdownPreview value={content} /> : 'Nada para visualizar'}
+                </div>
               )}
               <div className="criar-post-editor-footer">
                 <p>Aceita Markdown: <code>##</code> subtítulo, <code>**negrito**</code>, <code>*itálico*</code>, - lista, <code>1.</code> numerada, <code>[texto](link)</code>, &gt; citação, tabelas e imagens.</p>
