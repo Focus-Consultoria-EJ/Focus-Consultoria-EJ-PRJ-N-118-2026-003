@@ -78,7 +78,7 @@ function DocumentPlusIcon() {
 function Logo() {
   return (
     <div
-      className="logo"
+      className="geralPosts-logo"
       aria-label="Expand Jr"
       style={{
         display: 'flex',
