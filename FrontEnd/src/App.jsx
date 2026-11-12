@@ -1,6 +1,5 @@
 import RegisterPage from './pages/RegisterPage.jsx'
 import GeralPosts from './pages/GeralPosts.jsx'
-import CriarPost from './pages/CriarPost.jsx'
 import QuemSomos from './pages/QuemSomos.jsx'
 import Contato from './pages/Contato.jsx'
 import Solucoes from './pages/Solucoes.jsx'
@@ -27,10 +26,7 @@ const router = createBrowserRouter([
   path: '/geral-posts',
   element: <GeralPosts />,
 },
-{
-  path: '/criar-post',
-  element: <CriarPost />,
-},
+
 {
   path: '/quem-somos',
   element: <QuemSomos />,
