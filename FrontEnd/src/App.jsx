@@ -1,10 +1,12 @@
 import RegisterPage from './pages/RegisterPage.jsx'
 import GeralPosts from './pages/GeralPosts.jsx'
+import CriarPost from './pages/CriarPost.jsx'
 import QuemSomos from './pages/QuemSomos.jsx'
 import Contato from './pages/Contato.jsx'
 import Solucoes from './pages/Solucoes.jsx'
 import Blog from './pages/Blog.jsx'
 import PaginaInicial from './pages/PaginaInicial.jsx'
+import AdminLogin from './pages/AdminLogin.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -18,8 +20,16 @@ const router = createBrowserRouter([
   element: <RegisterPage />,
 },
 {
+  path: '/admin-login',
+  element: <AdminLogin />,
+},
+{
   path: '/geral-posts',
   element: <GeralPosts />,
+},
+{
+  path: '/criar-post',
+  element: <CriarPost />,
 },
 {
   path: '/quem-somos',

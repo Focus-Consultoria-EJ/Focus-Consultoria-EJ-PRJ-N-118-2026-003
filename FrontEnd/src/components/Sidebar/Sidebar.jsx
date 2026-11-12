@@ -55,6 +55,20 @@ function LogoutIcon() {
     );
 }
 
+function AdminIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 const linkClass = ({isActive}) =>
     isActive ? 'app-sidebar-item app-sidebar-item-active' : 'app-sidebar-item';
 
@@ -75,9 +89,11 @@ export default function Sidebar({ userEmail, onLogout}) {
                     <span>Adicionar post</span>
                 </NavLink>
             </nav>
-
             <div className="app-sidebar-footer">
-                <span className="app-sidebar-email">{userEmail}</span>
+                <NavLink to="/admin-login" className="app-sidebar-admin">
+                    <AdminIcon />
+                    <span>Admin</span>
+                </NavLink>
                 <button type="button" className="app-sidebar-logout" onClick={onLogout}>
                     <LogoutIcon />
                     <span>Sair</span>

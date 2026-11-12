@@ -11,6 +11,11 @@
   position: relative;
   display: flex;
   min-height: 100vh;
+  background-image: url('../../assets/marcaDagua.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -50,7 +55,7 @@
 
 .form-box {
   background-color: white;
-  border-radius: 30px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -64,7 +69,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  color: #1a202c;
+  color: #959595;
   font-weight: bold;
 }
 
@@ -74,9 +79,9 @@
 }
 
 .input-group input {
-  background-color: #9DA5AB;
+  background-color: #e6eaee;
   padding: 12px;
-  border-radius: 50px;
+  border-radius: 10px;
   border: 1px solid #e0e0e0;
   font-size: 16px;
 }

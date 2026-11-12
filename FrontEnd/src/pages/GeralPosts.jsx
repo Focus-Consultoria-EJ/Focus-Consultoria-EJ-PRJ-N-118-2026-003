@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import './Styles/GeralPostStyles.css';
-import ExpandBranco from '../assets/ExpandBranco.png';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const initialPosts = [
   {
@@ -9,7 +9,11 @@ const initialPosts = [
       'Tensões no Mar do Sul da China e os impactos nas rotas marítimas globais',
     category: 'Geopolítica',
     status: 'Rascunho',
-    date: 'Modificado 09/09/2026, 00:01',
+    date: {
+      label: 'Modificado',
+      day: '09/09/2026',
+      time: '00:01',
+    },
   },
   {
     id: 2,
@@ -17,7 +21,11 @@ const initialPosts = [
       'O futuro do comércio exterior: Inteligência artificial e Comércio digital',
     category: 'Comércio Exterior',
     status: 'Agendado',
-    date: 'Agendado 10/09/2026, 19:41',
+    date: {
+      label: 'Agendado',
+      day: '10/09/2026',
+      time: '19:41',
+    },
   },
   {
     id: 3,
@@ -25,7 +33,11 @@ const initialPosts = [
       'Negociação intercultural: como fechar negócios com parceiros do Oriente Médio',
     category: 'Cultura e RI',
     status: 'Publicado',
-    date: 'Publicado 12/08/2026, 19:41',
+    date: {
+      label: 'Publicado',
+      day: '12/08/2026',
+      time: '19:41',
+    },
   },
 ];
 
@@ -36,67 +48,7 @@ const tabs = [
   { label: 'Rascunho', status: 'Rascunho' },
 ];
 
-function ListIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M9 6h11M9 12h11M9 18h11"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function DocumentPlusIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14 3v5h5M18 13v7M14.5 16.5h7"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function Logo() {
-  return (
-    <div
-      className="logo"
-      aria-label="Expand Jr"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: '30px',
-        padding: '0 10px',
-      }}
-    >
-      <img
-        src={ExpandBranco}
-        alt="Expand Jr"
-        style={{ width: '100%', maxWidth: '160px', height: 'auto' }}
-      />
-    </div>
-  );
-}
-
- function GeralPost() {
+function GeralPost() {
   const [posts, setPosts] = useState(initialPosts);
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState('Todos');
@@ -121,23 +73,7 @@ function Logo() {
 
   return (
     <div className="posts-page">
-      <aside className="sidebar">
-        <Logo />
-        <nav aria-label="Navegação de posts">
-          <button
-            className="nav-item nav-item-active"
-            type="button"
-            onClick={() => setActiveTab('Todos')}
-          >
-            <ListIcon />
-            <span>Todos os posts</span>
-          </button>
-          <button className="nav-item" type="button">
-            <DocumentPlusIcon />
-            <span>Adicionar post</span>
-          </button>
-        </nav>
-      </aside>
+      <Sidebar />
 
       <main className="content">
         <section className="posts-section" aria-labelledby="posts-title">
@@ -228,7 +164,11 @@ function Logo() {
                         </span>
                       </td>
                       <td data-label="Data" className="date-cell">
-                        {post.date}
+                        <div className="date-cell-details">
+                          <div className="date-cell-label">{post.date.label}</div>
+                          <div className="date-cell-day">{post.date.day}</div>
+                          <div className="date-cell-time">{post.date.time}</div>
+                        </div>
                       </td>
                       <td className="actions-cell">
                         <button

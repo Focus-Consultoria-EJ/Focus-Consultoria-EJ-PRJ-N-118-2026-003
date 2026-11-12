@@ -48,7 +48,7 @@ function PublishCard({ canPublish, onDraft, onPublish }) {
         <p className="criar-post-meta-row"><KeyIcon />Status: <strong>Rascunho</strong></p>
         <p className="criar-post-meta-row"><EyeIcon />Visibilidade: <strong>Público</strong></p>
         <p className="criar-post-meta-row">
-          <CalendarIcon />Publicar <strong>imediatamente</strong>
+          <CalendarIcon />Publicar <strong>Imediatamente</strong>
          <button type="button" className="criar-post-link-btn" onClick={() => console.log('Editar data')}>Editar</button>
         </p>
         <div className="criar-post-publish-actions">
@@ -125,7 +125,7 @@ const TOOLS = [
   { id: 'ol', label: 'Lista numerada', hint: '1.', icon: ListOrdered },
   { id: 'quote', label: 'Citação', hint: '>', icon: Quote },
   { id: 'link', label: 'Link', hint: '[texto](url)', icon: LinkIcon },
-  { id: 'image', label: 'Imagem', hint: '![legenda](url)', icon: PictureIcon },
+
 ];
 
 function EditorToolbar({ onAction }) {

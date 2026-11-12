@@ -41,11 +41,11 @@
 .app-sidebar-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 3px;
   width: 100%;
   min-height: 40px;
   padding: 8px 12px;
-  border-radius: 24px;
+  border-radius: 0px;
   color: #fff;
   background: transparent;
   font-size: 14px;
@@ -72,7 +72,7 @@
 .app-sidebar-footer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px;
   margin-top: auto;
   padding: 0 12px;
   font-size: 13px;
@@ -83,19 +83,37 @@
   opacity: 0.9;
 }
 
+.app-sidebar-admin,
 .app-sidebar-logout {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0;
+  min-height: 40px;
+  padding: 8px 12px;
   border: 0;
   background: none;
   color: #fff;
   font-family: inherit;
   font-size: 13px;
   cursor: pointer;
+  text-decoration: none;
 }
 
+.app-sidebar-admin:hover,
+.app-sidebar-admin:focus-visible,
+.app-sidebar-logout:hover,
+.app-sidebar-logout:focus-visible {
+  color: rgb(255 255 255 / 75%);
+  outline: none;
+}
+
+.app-sidebar-admin:hover,
+.app-sidebar-logout:hover{
+    background: rgba(204, 197, 241, 0.12);
+}
+
+
+.app-sidebar-admin svg,
 .app-sidebar-logout svg {
   width: 17px;
   height: 17px;
