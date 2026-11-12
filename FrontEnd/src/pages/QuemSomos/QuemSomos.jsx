@@ -1,22 +1,67 @@
 import './QuemSomos.css';
 import ExpandAzul from "../../assets/logos/ExpandAzul.png";
+import LogoNova from "../../assets/logos/LogoNova.png";
 import calendarIcon from "../../assets/icons/calendar.svg";
 import clockIcon from "../../assets/icons/clock.svg";
 import graduationIcon from "../../assets/icons/graduationCap.svg"; 
 import inspectionIcon from "../../assets/icons/inspection.svg";
 import groupIcon from "../../assets/icons/group.svg";
 import clipBoardIcon from "../../assets/icons/clipboard.svg";
+import caseSucesso1 from "../../assets/imagens/17transp.png";
+import caseSucesso2 from "../../assets/imagens/18transp.png";
+import caseSucesso3 from "../../assets/imagens/19transp.png";
+
+import { useRef } from 'react';
 
 export const QuemSomos = () => {
+  const resultadosRef = useRef(null);
+  const casesRef = useRef(null);
+
+  const moverResultados = (direcao) => {
+    if (!resultadosRef.current) return;
+
+    resultadosRef.current.scrollBy({
+      left: resultadosRef.current.clientWidth * 0.8 * direcao,
+      behavior: 'smooth',
+    });
+  };
+  const moverCases = (direcao) => {
+    const trilho = casesRef.current;
+
+    if (!trilho) return;
+
+    const primeiroCard = trilho.querySelector('.cases-sucesso-item');
+
+    if (!primeiroCard) return;
+
+    const larguraCard = primeiroCard.getBoundingClientRect().width;
+    const espacamento = 24;
+
+    trilho.scrollBy({
+      left: (larguraCard + espacamento) * direcao,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className="quem-somos-section">
       <div className="quem-somos-content">
-        <h1>QUEM SOMOS</h1>
-        <p>
-          Somos a Empresa Júnior de Relações Internacionais da UFRJ. Há mais de 10 anos ajudamos
-          empresas brasileiras a expandir seus horizontes com estudos de mercado, planejamento
-          logístico e análise burocrática — sempre com rigor técnico e preços acessíveis.
-        </p>
+        <div className="quem-somos-texto">
+          <span className="quem-somos-selo">
+            EXPAND JR. · UFRJ
+          </span>
+          <h1>QUEM SOMOS</h1>
+          <p>
+            Somos a Empresa Júnior de Relações Internacionais da UFRJ. Há mais de 10 anos ajudamos
+            empresas brasileiras a expandir seus horizontes com estudos de mercado, planejamento
+            logístico e análise burocrática — sempre com rigor técnico e preços acessíveis.
+          </p>
+          </div>
+          <div className="quem-somos-foto">
+            <img src={LogoNova} alt="Equipe da Expand Jr." className="quem-somos-imagem">
+            </img>
+          </div>
+        
       </div>
 
       <div className="porque-titulo-container">
@@ -51,44 +96,88 @@ export const QuemSomos = () => {
 
       <div className="resultados-section">
         <h2 className="resultados-titulo">RESULTADOS</h2>
+        <div className="resultados-carrossel">
+          <div className="resultados-controles">
+            <button type="button" className="controle prev" onClick={() => moverResultados(-1)} aria-label="Ver resultados anteriores">
+              ←
+            </button>
 
-        <div className="resultados-grid">
-          <div className="resultado-item">
-            <img src={calendarIcon} alt="Anos no mercado" />
-            <h3>+ 10</h3>
-            <p>Anos no mercado</p>
+            <button type="button" className="controle next" onClick={() => moverResultados(1)} aria-label="Ver próximos resultados">
+              →
+            </button>
           </div>
 
-          <div className="resultado-item">
-            <img src={clipBoardIcon} alt="Projetos realizados" />
-            <h3>+ 80</h3>
-            <p>Projetos realizados</p>
-          </div>
+          <div className="resultados-grid" ref={resultadosRef}>
+            <div className="resultado-item">
+              <img src={calendarIcon} alt="Anos no mercado" />
+              <h3>+ 10</h3>
+              <p>Anos no mercado</p>
+            </div>
 
-          <div className="resultado-item">
-            <img src={clockIcon} alt="Horas de pesquisa" />
-            <h3>+ 1000</h3>
-            <p>Horas de pesquisa</p>
-          </div>
+            <div className="resultado-item">
+              <img src={clipBoardIcon} alt="Projetos realizados" />
+              <h3>+ 80</h3>
+              <p>Projetos realizados</p>
+            </div>
 
-          <div className="resultado-item">
-            <img src={inspectionIcon} alt="Satisfação dos clientes" />
-            <h3>+ 90%</h3>
-            <p>Satisfação dos clientes</p>
-          </div>
+            <div className="resultado-item">
+              <img src={clockIcon} alt="Horas de pesquisa" />
+              <h3>+ 1000</h3>
+              <p>Horas de pesquisa</p>
+            </div>
 
-          <div className="resultado-item">
-            <img src={groupIcon} alt="Capacitações oferecidas para equipe" />
-            <h3>+ 30</h3>
-            <p>Capacitações oferecidas para equipe</p>
-          </div>
+            <div className="resultado-item">
+              <img src={inspectionIcon} alt="Satisfação dos clientes" />
+              <h3>+ 90%</h3>
+              <p>Satisfação dos clientes</p>
+            </div>
 
-          <div className="resultado-item">
-            <img src={graduationIcon} alt="Estudantes impactados" />
-            <h3>+ 300</h3>
-            <p>Estudantes impactados</p>
+            <div className="resultado-item">
+              <img src={groupIcon} alt="Capacitações oferecidas para equipe" />
+              <h3>+ 30</h3>
+              <p>Capacitações oferecidas para equipe</p>
+            </div>
+
+            <div className="resultado-item">
+              <img src={graduationIcon} alt="Estudantes impactados" />
+              <h3>+ 300</h3>
+              <p>Estudantes impactados</p>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="cases-sucesso-section">
+        <div className="cases-sucesso-titulo">
+          <h2>Cases de sucesso!</h2>
+        </div>
+        <div className="cases-sucesso-area">
+          <div className= "cases-sucesso-controles">
+            <div className="resultados-controles">
+              <button type="button" className="controle prev" onClick={() => moverCases(-1)} aria-label="Ver resultados anteriores">
+                ←
+              </button>
+
+              <button type="button" className="controle next" onClick={() => moverCases(1)} aria-label="Ver próximos resultados">
+                →
+              </button>
+            </div>
+          </div>
+          <div className="cases-sucesso-grid" ref={casesRef}>
+            <div className="cases-sucesso-item">
+              <img src={caseSucesso1} alt="Case de Sucesso 1" />
+            </div>
+            <div className="cases-sucesso-item">
+              <img src={caseSucesso2} alt="Case de Sucesso 1" />
+            </div>
+            <div className="cases-sucesso-item">
+              <img src={caseSucesso3} alt="Case de Sucesso 1" />
+            </div>
+          </div>
+
+        </div>
+        
+
       </div>
     </section>
   );
