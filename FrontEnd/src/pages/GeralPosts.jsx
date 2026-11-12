@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import './Styles/GeralPostStyles.css';
-import ExpandBranco from '../assets/ExpandBranco.png';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const initialPosts = [
   {
@@ -9,7 +9,11 @@ const initialPosts = [
       'Tensões no Mar do Sul da China e os impactos nas rotas marítimas globais',
     category: 'Geopolítica',
     status: 'Rascunho',
-    date: 'Modificado 09/09/2026, 00:01',
+    date: {
+      label: 'Modificado',
+      day: '09/09/2026',
+      time: '00:01',
+    },
   },
   {
     id: 2,
@@ -17,7 +21,11 @@ const initialPosts = [
       'O futuro do comércio exterior: Inteligência artificial e Comércio digital',
     category: 'Comércio Exterior',
     status: 'Agendado',
-    date: 'Agendado 10/09/2026, 19:41',
+    date: {
+      label: 'Agendado',
+      day: '10/09/2026',
+      time: '19:41',
+    },
   },
   {
     id: 3,
@@ -25,7 +33,11 @@ const initialPosts = [
       'Negociação intercultural: como fechar negócios com parceiros do Oriente Médio',
     category: 'Cultura e RI',
     status: 'Publicado',
-    date: 'Publicado 12/08/2026, 19:41',
+    date: {
+      label: 'Publicado',
+      day: '12/08/2026',
+      time: '19:41',
+    },
   },
 ];
 
@@ -115,23 +127,7 @@ function Logo() {
 
   return (
     <div className="posts-page">
-      <aside className="sidebar">
-        <Logo />
-        <nav aria-label="Navegação de posts">
-          <button
-            className="nav-item nav-item-active"
-            type="button"
-            onClick={() => setActiveTab('Todos')}
-          >
-            <ListIcon />
-            <span>Todos os posts</span>
-          </button>
-          <button className="nav-item" type="button">
-            <DocumentPlusIcon />
-            <span>Adicionar post</span>
-          </button>
-        </nav>
-      </aside>
+      <Sidebar />
 
       <main className="content">
         <section className="posts-section" aria-labelledby="posts-title">
@@ -222,7 +218,11 @@ function Logo() {
                         </span>
                       </td>
                       <td data-label="Data" className="date-cell">
-                        {post.date}
+                        <div className="date-cell-details">
+                          <div className="date-cell-label">{post.date.label}</div>
+                          <div className="date-cell-day">{post.date.day}</div>
+                          <div className="date-cell-time">{post.date.time}</div>
+                        </div>
                       </td>
                       <td className="actions-cell">
                         <button

@@ -16,31 +16,28 @@ margin-top: -20px;
   width: 100vw; 
   height: 100vh;
   text-align: left;
-  background-color: #f1f2f7;
+  background-image: url('../../assets/marcaDagua.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #22274f;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   overflow-y: auto; 
   overflow-x: hidden;
 }
 
-.posts-page h1 {
-  margin: 0 0 22px;
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.5px;
-  color: #22274f;
-
+.posts-page button,
+.posts-page input {
+  font-family: inherit;
 }
 
-.posts-page .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 240px;
-  padding: 23px 19px;
-  color: #fff;
-  background: #252a5a;
+.posts-page h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #252a5a;
 }
 
 .posts-page .content {
@@ -49,7 +46,6 @@ margin-top: -20px;
   min-height: 100vh;
   margin-left: 240px;
   padding: 35px 40px;
-  background: #f1f2f7;
 }
 
 .posts-page .post-tools {
@@ -79,8 +75,8 @@ margin-top: -20px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-  height: 17px;
-  width: 17px;
+  height: 18px;
+  width: 18px;
 }
 
 .posts-page .search-field {
@@ -94,7 +90,7 @@ margin-top: -20px;
   height: 42px;
   padding: 0 17px;
   border: 1px solid #d7d9e2;
-  border-radius: 999px;
+  border-radius: 5px;
   color: #252a5a;
   background: #fff;
   font-size: 14px;
@@ -169,7 +165,7 @@ margin-top: -20px;
   color: #fff;
   background: #252a5a;
   box-shadow: 0 6px 13px rgb(37 42 90 / 17%);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   transition:
     transform 160ms ease,
@@ -200,7 +196,7 @@ margin-top: -20px;
   border-bottom: 1px solid transparent;
   color: #008fc1;
   background: transparent;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -225,7 +221,7 @@ margin-top: -20px;
   min-width: 700px;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .posts-page th,
@@ -303,7 +299,7 @@ margin-top: -20px;
   min-width: 72px;
   padding: 3px 10px;
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
@@ -326,6 +322,22 @@ margin-top: -20px;
   line-height: 1.5;
 }
 
+.posts-page .date-cell-details {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.posts-page .date-cell-label {
+  color: #656a7d;
+  font-size: 12px;
+}
+
+.posts-page .date-cell-day,
+.posts-page .date-cell-time {
+  color: #24294f;
+}
+
 .posts-page .actions-cell {
   white-space: normal;
   text-align: center;
@@ -335,7 +347,7 @@ margin-top: -20px;
   padding: 3px 5px;
   border: 0;
   background: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .posts-page .delete-button {
@@ -398,10 +410,6 @@ margin-top: -20px;
 }
 
 @media (max-width: 900px) {
-  .posts-page .sidebar {
-    width: 205px;
-  }
-
   .posts-page .content {
     width: calc(100% - 205px);
     margin-left: 205px;
@@ -415,26 +423,6 @@ margin-top: -20px;
     height: auto;
     min-height: 100vh;
     overflow-x: hidden;
-  }
-
-  .posts-page .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 16px;
-  }
-
-  .posts-page .sidebar nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .posts-page .nav-item {
-    width: auto;
-    justify-content: center;
   }
 
   .posts-page .content {
@@ -499,6 +487,10 @@ margin-top: -20px;
     text-align: right;
   }
 
+  .posts-page tbody td.date-cell .date-cell-details {
+    justify-items: end;
+  }
+
   .posts-page tbody td::before {
     content: attr(data-label);
     flex: 0 0 auto;
@@ -528,7 +520,7 @@ margin-top: -20px;
 
 @media (max-width: 480px) {
   .posts-page h1 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 16px;
   }
 
