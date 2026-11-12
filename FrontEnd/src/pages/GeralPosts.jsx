@@ -48,7 +48,61 @@ const tabs = [
   { label: 'Rascunho', status: 'Rascunho' },
 ];
 
-function GeralPost() {
+function ListIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M9 6h11M9 12h11M9 18h11"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function DocumentPlusIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 3v5h5M18 13v7M14.5 16.5h7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Logo() {
+  return (
+    <div
+      className="geralPosts-logo"
+      aria-label="Expand Jr"
+    >
+      <img
+        src={ExpandBranco}
+        alt="Expand Jr"
+        style={{ width: '100%', maxWidth: '160px', height: 'auto' }}
+      />
+    </div>
+  );
+}
+
+ function GeralPost() {
   const [posts, setPosts] = useState(initialPosts);
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState('Todos');

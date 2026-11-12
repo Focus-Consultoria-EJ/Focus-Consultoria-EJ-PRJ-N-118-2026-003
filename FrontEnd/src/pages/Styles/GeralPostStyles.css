@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.logo{
+margin-top: -20px;
+}
+
 .posts-page {
   position: fixed; 
   top: 0;
@@ -102,6 +106,43 @@
   margin: 0 auto;
 }
 
+.posts-page .sidebar nav {
+  display: grid;
+  gap: 3px;
+  margin-top: 50px;
+}
+
+.posts-page .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 24px;
+  color: #fff;
+  background: transparent;
+  font-size: 14px;
+  text-align: left;
+  transition: background 160ms ease;
+}
+
+.posts-page .nav-item:hover, .posts-page .nav-item:focus-visible {
+  background: rgb(255 255 255 / 12%);
+  outline: none;
+}
+
+.posts-page .nav-item-active {
+  background: rgb(255 255 255 / 13%);
+}
+
+.posts-page .nav-item svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
 .posts-page .search-field input::placeholder {
   color: #9495a0;
 }
@@ -166,10 +207,9 @@
 
 .posts-page .table-card {
   overflow: hidden;
-  border: 1px solid #d8dbe3;
+
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 15px 23px rgb(50 58 83 / 14%);
 }
 
 .posts-page .table-scroll {
@@ -404,7 +444,7 @@
   .posts-page .tabs {
     justify-content: flex-start;
     overflow-x: auto;
-    white-space: nowrap;
+    
     padding-bottom: 5px;
   }
 
@@ -484,4 +524,18 @@
     margin-bottom: 16px;
   }
 
+  .posts-page .sidebar nav {
+    flex-direction: column;
+  }
+
+  .posts-page .nav-item {
+    width: 100%;
+  }
+}
+
+.posts-page .tab,
+.posts-page .post-title,
+.posts-page .delete-button {
+  border-radius: 0;
+  box-shadow: none;
 }

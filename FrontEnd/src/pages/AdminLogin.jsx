@@ -1,4 +1,4 @@
-import './Styles/RegisterStyles.css';
+import './Styles/LoginStyles.css';
 import './Styles/index.css';
 import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
