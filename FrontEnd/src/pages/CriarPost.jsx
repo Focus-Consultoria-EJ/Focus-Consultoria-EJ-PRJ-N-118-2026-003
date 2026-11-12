@@ -2,6 +2,11 @@ import { useState, useRef } from 'react';
 import Sidebar from '../components/Sidebar/Sidebar';
 import './Styles/CriarPostStyles.css';
 import MarkdownPreview from '../components/MarkdownPreview/MarkdownPreview.jsx';
+import {
+  Bold, Italic, Heading2, Heading3, List, ListOrdered, Quote,
+  Link as LinkIcon, Image as PictureIcon
+} from 'lucide-react';
+import { actions } from '../utils/markdownActions.js';
 
 const USER_EMAIL = 'usuario@exemplo.com';
 const CATEGORIES = ['Comércio Exterior', 'Cultura e RI', 'Geopolítica', 'Notícias', 'Sem categoria'];
@@ -110,6 +115,32 @@ function CoverImageCard() {
   )
 }
 
+/* ---------- Barra de formatação ---------- */
+const TOOLS = [
+  { id: 'h2', label: 'Subtítulo', hint: '##', icon: Heading2 },
+  { id: 'h3', label: 'Subtítulo menor', hint: '###', icon: Heading3 },
+  { id: 'bold', label: 'Negrito', hint: '**texto**', icon: Bold },
+  { id: 'italic', label: 'Itálico', hint: '*texto*', icon: Italic },
+  { id: 'ul', label: 'Lista com marcadores', hint: '-', icon: List },
+  { id: 'ol', label: 'Lista numerada', hint: '1.', icon: ListOrdered },
+  { id: 'quote', label: 'Citação', hint: '>', icon: Quote },
+  { id: 'link', label: 'Link', hint: '[texto](url)', icon: LinkIcon },
+  { id: 'image', label: 'Imagem', hint: '![legenda](url)', icon: PictureIcon },
+];
+
+function EditorToolbar({ onAction }) {
+  return (
+    <div className="criar-post-toolbar" role="toolbar" aria-label="Formatação do texto">
+      {TOOLS.map(({ id, label, hint, icon: ToolIcon }) => (
+        <button key={id} type="button" className="criar-post-tool"
+          aria-label={label} title={`${label} (${hint})`} onClick={() => onAction(id)}>
+          <ToolIcon size={18} aria-hidden="true" />
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /* ---------- Página ---------- */
 export default function CriarPost() {
   const [title, setTitle] = useState('');
@@ -118,6 +149,7 @@ export default function CriarPost() {
   const [summary, setSummary] = useState('');
   const [category, setCategory] = useState('Sem categoria');
   const [tab, setTab] = useState('escrever'); // 'escrever' | 'visualizar'
+  const textareaRef = useRef(null);
 
  // 1. Remove marcadores comuns de Markdown e caracteres especiais isolados
 const cleanContent = content
@@ -131,6 +163,16 @@ const words = cleanContent === '' ? 0 : cleanContent.split(/\s+/).filter(word =>
 const canPublish = title.trim() !== '';
 
 const save = (status) => console.log({ status, title, slug, content, summary, category, words });
+function applyAction(id) {
+  const el = textareaRef.current;
+  if (!el) return;
+  const result = actions[id](content, el.selectionStart, el.selectionEnd);
+  setContent(result.text);
+  requestAnimationFrame(() => {
+    el.focus();
+    el.setSelectionRange(result.selStart, result.selEnd);
+  });
+}
   return (
     <div className="criar-post-page">
       <Sidebar userEmail={USER_EMAIL} onLogout={() => console.log('Sair')} />
@@ -182,8 +224,9 @@ const save = (status) => console.log({ status, title, slug, content, summary, ca
                   role="tabpanel"
                   aria-labelledby="tab-escrever"
                 >
+                  <EditorToolbar onAction={applyAction} />
                   <label className="criar-post-sr-only" htmlFor="criar-post-content">Conteúdo</label>
-                  <textarea id="criar-post-content" className="criar-post-textarea"
+                  <textarea ref={textareaRef} id="criar-post-content" className="criar-post-textarea"
                     placeholder={PLACEHOLDER} value={content} onChange={(e) => setContent(e.target.value)} />
                 </div>
               ) : (
