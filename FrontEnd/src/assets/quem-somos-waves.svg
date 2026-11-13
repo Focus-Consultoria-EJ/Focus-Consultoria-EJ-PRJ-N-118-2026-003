@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 2400" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="wave-blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0878be" stop-opacity=".07"/>
+      <stop offset=".5" stop-color="#0878be" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#0878be" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="wave-white" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity=".72"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".72"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#wave-blue)" d="M0 150C250 210 430 280 690 220S1120 90 1440 165v220c-300-85-485-15-750 45S260 490 0 405z"/>
+  <path fill="url(#wave-white)" d="M0 430c290 85 450 140 715 75s455-145 725-65v105c-300-75-475 15-740 80S260 675 0 550z"/>
+  <path fill="url(#wave-blue)" d="M0 755c260 95 455 110 720 40s450-100 720-5v235c-285-100-475-15-745 50S255 1090 0 990z"/>
+  <path fill="url(#wave-white)" d="M0 1010c285 100 440 150 715 85s455-130 725-40v105c-300-85-465 15-740 80S255 1250 0 1135z"/>
+  <path fill="url(#wave-blue)" d="M0 1350c255 95 450 100 720 35s455-105 720-5v245c-295-95-475-15-745 50S260 1680 0 1580z"/>
+  <path fill="url(#wave-white)" d="M0 1600c285 100 445 145 715 80s455-130 725-40v105c-300-85-475 15-745 80S255 1845 0 1730z"/>
+  <path fill="url(#wave-blue)" d="M0 1945c265 95 455 105 720 35s455-105 720-5v230c-295-90-480-15-745 50S260 2265 0 2170z"/>
+  <path fill="url(#wave-white)" d="M0 2190c290 100 450 140 715 80s455-125 725-40v170H0z"/>
+</svg>
