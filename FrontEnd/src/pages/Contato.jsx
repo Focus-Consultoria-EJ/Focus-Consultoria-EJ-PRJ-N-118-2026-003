@@ -1,11 +1,6 @@
 import './Styles/ContatoStyles.css';
-import { Header } from '../components/Header/Header.jsx';
-import { Footer } from '../components/Footer/Footer.jsx';
-function Contato({ mudarPagina }) {
+function Contato() {
   return (
-      <>
-      <Header mudarPagina={mudarPagina} />
-      
     <div className="container">
       <h1>ENTRE EM CONTATO</h1>
       <p>Conte um pouco sobre o seu desafio e retornaremos o mais breve possível.</p>
@@ -38,9 +33,6 @@ function Contato({ mudarPagina }) {
 
       </form>
     </div>
-
-    <Footer />
-    </>  
   );
 }
 

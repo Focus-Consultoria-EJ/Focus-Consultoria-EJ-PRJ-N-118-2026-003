@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
-* {
+.login-page,
+.login-page *,
+.login-page *::before,
+.login-page *::after {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container {
+.login-page {
   position: relative;
   display: flex;
   min-height: 100vh;
-  background-image: url('../../assets/marcaDagua.webp');
+  background-image: url('../../assets/marcaDaguaEscura.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,16 +24,16 @@
   flex-direction: column;
   gap: 0px;
   padding: 90px 20px 20px; /* o topo livre evita o conteúdo ficar sob a logo */
-  color: #1a202c;
+  color: #ffffff;
 }
 
-.logo {
+.login-page .logo {
   position: absolute;
   top: 40px;
   left: 20px;
   width: 220px;
   height: 60px;
-  background-color: #21244d;
+  background-color: #ffffff;
   margin-bottom: 20px;
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -40,32 +43,32 @@
   -webkit-mask-position: left center;
 }
 
-.container h1 {
-  color: #21244d;
+.container.login-page h1 {
+  color: #ffffff;
   font-size: 50px;
   font-weight: 700;
 }
 
-.container p {
+.login-page p {
   color: #718096;
   font-size: 15px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.form-box {
-  background-color: white;
+.login-page .form-box {
+  background-color: rgb(253, 253, 255);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   gap: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.input-group {
+.login-page .input-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -73,39 +76,43 @@
   font-weight: bold;
 }
 
-.input-group label {
+.login-page .input-group label {
   color: #21244d;
   font-weight: 600;
 }
 
-.input-group input {
+.login-page .input-group input {
   background-color: #e6eaee;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 0px;
   border: 1px solid #e0e0e0;
   font-size: 16px;
 }
 
-.input-group input::placeholder {
+.login-page .input-group input::placeholder {
   color: #4a5058;
 }
 
-.password-wrapper {
+.login-page .password-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.password-wrapper input {
+.login-page .password-wrapper input {
   padding-right: 48px;
 }
 
-.toggle-password {
+.login-page .toggle-password {
   position: absolute;
   right: 16px;
-  top: 50%;
+  top: calc(50% - 4px);
   transform: translateY(-50%);
-  background: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background: none !important;
+  box-shadow: none !important;
   border: none;
   cursor: pointer;
   color: #21244d;
@@ -113,10 +120,19 @@
   align-items: center;
 }
 
-.btn-primary {
+.login-page .toggle-password:hover,
+.login-page .toggle-password:focus,
+.login-page .toggle-password:active {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.login-page .btn-primary {
+  align-self: center;
+  width: 150px;
   background-color: #21244d;
   color: white;
-  padding: 12px;
+  padding: 8px 12px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
@@ -126,12 +142,12 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary:hover {
+.login-page .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.btn-google {
+.login-page .btn-google {
   background-color: #f0f4f8;
   color: #21244d;
   padding: 12px;
@@ -144,12 +160,12 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-google:hover {
+.login-page .btn-google:hover {
   transform: translateY(-3px);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.login-link {
+.login-page .login-link {
   text-align: center;
   color: #3182ce;
   text-decoration: none;
@@ -159,28 +175,36 @@
 /* ===== Responsividade (sempre no final do arquivo) ===== */
 
 @media (max-width: 768px) {
-  .container h1 {
+  .container.login-page h1 {
     font-size: 42px;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
+  .login-page {
     padding: 70px 16px 16px;
   }
 
-  .logo {
+  .login-page .logo {
     width: 150px;
     height: 40px;
-    top: 16px;
+    top: 28px;
     left: 16px;
   }
 
-  .container h1 {
+  .login-page .input-group input {
+    font-size: 16px;
+  }
+
+  .login-page .input-group input::placeholder {
+    font-size: 14px;
+  }
+
+  .container.login-page h1 {
     font-size: 36px;
   }
 
-  .form-box {
+  .login-page .form-box {
     padding: 16px;
     border-radius: 24px;
   }

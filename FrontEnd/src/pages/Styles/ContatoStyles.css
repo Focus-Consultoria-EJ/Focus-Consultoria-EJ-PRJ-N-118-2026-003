@@ -90,7 +90,7 @@
 }
 
 .btn-primary.full {
-  justify-self: start; 
+  justify-self: center;
   padding: 12px 24px;
 }
 
@@ -105,7 +105,7 @@
   }
   .input-group input::placeholder,
   .input-group textarea::placeholder {
-  font-size: 12px;
+  font-size: 14px;
  }
 }
 
@@ -126,7 +126,7 @@
   }
   .input-group input::placeholder,
   .input-group textarea::placeholder {
-  font-size: 10px;
+  font-size: 14px;
   }
 }
 
