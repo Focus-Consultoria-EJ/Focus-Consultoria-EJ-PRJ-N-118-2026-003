@@ -1,4 +1,18 @@
 body {
-  background-color: #f4f6f9;
+  background-color: var(--bg);
   margin: 0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f4f9f8;
+  --primary-color:#21244d;
+  --secondary-color:#1a202c;
+  
 }

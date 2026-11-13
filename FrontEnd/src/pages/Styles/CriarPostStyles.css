@@ -1,0 +1,186 @@
+.criar-post-page, .criar-post-page *, .criar-post-page *::before, .criar-post-page *::after { box-sizing: border-box; }
+
+.criar-post-page {
+  min-height: 100vh;
+  background-image: url('../../assets/marcaDagua.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #22274f;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-align: left;
+}
+.criar-post-page button, .criar-post-page input, .criar-post-page textarea { font-family: inherit; }
+
+.criar-post-page .criar-post-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.criar-post-page .criar-post-icon { flex-shrink: 0; }
+
+/* Conteúdo */
+.criar-post-page .criar-post-main { margin-left: 240px; padding: 40px 64px 48px; }
+.criar-post-page .criar-post-heading { margin: 0 0 24px; font-size: 28px; font-weight: 700; color: #252a5a; }
+.criar-post-page .criar-post-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 26px; align-items: start;
+}
+.criar-post-page .criar-post-form, .criar-post-page .criar-post-side {
+  display: flex; flex-direction: column; gap: 16px; min-width: 0;
+}
+
+.criar-post-page .criar-post-title-input {
+  width: 100%; height: 60px; padding: 0 18px; border-radius:5px;
+  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
+  font-size: 26px; font-weight: 600;
+}
+.criar-post-page .criar-post-title-input::placeholder { color: #9396ae; }
+.criar-post-page .criar-post-slug-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.criar-post-page .criar-post-slug-input {
+  width: 185px; max-width: 100%; height: 32px; padding: 0 12px; border-radius: 10px;
+  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
+}
+
+/* Editor */
+.criar-post-page .criar-post-editor, .criar-post-page .criar-post-card {
+  background: #fff; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(37, 42, 90, 0.12);
+}
+.criar-post-page .criar-post-editor-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 28px 10px 17px; border-bottom: 1px solid #d8dbe3; font-weight: 500;
+}
+
+.criar-post-page .criar-post-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #d8dbe3;
+}
+
+.criar-post-page .criar-post-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: #22274f;
+  cursor: pointer;
+}
+
+.criar-post-page .criar-post-tool:hover {
+  background: #e3e5ec;
+}
+
+.criar-post-page .criar-post-tool:focus-visible {
+  outline: 2px solid #4d75ad;
+  outline-offset: -2px;
+}
+
+@media (max-width: 480px) {
+  .criar-post-page .criar-post-tool {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.criar-post-page .criar-post-tabs { display: flex; gap: 4px; }
+.criar-post-page .criar-post-tab {
+  border: 0; background: none; color: #22274f; border-radius: 10px;
+  padding: 5px 14px; cursor: pointer; font-size: 14px;
+}
+.criar-post-page .criar-post-tab[aria-selected='true'] { background: #e3e5ec; font-weight: 500; }
+.criar-post-page .criar-post-textarea, .criar-post-page .criar-post-preview {
+  display: block; width: 100%; height: 448px; padding: 22px 21px; border: 0; resize: vertical;
+  font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.6; color: #22274f;
+}
+.criar-post-page .criar-post-textarea { outline: none; }
+.criar-post-page .criar-post-textarea::placeholder { color: #8b8fa3; }
+.criar-post-page .criar-post-preview { overflow: auto; font-family: inherit; line-height: 1.6; word-break: break-word; }
+.criar-post-page .criar-post-editor-footer {
+  border-top: 1px solid #d8dbe3; padding: 10px 17px 12px; font-size: 12px; color: #4a4f72;
+}
+.criar-post-page .criar-post-editor-footer p { margin: 0 0 8px; }
+.criar-post-page .criar-post-editor-footer p:last-child { margin: 0; }
+.criar-post-page .criar-post-editor-footer code { font-family: ui-monospace, Menlo, Consolas, monospace; }
+
+.criar-post-page .criar-post-summary-label { font-weight: 600; font-size: 14px; margin-bottom: -8px; }
+.criar-post-page .criar-post-summary {
+  width: 100%; height: 90px; padding: 12px 16px; border-radius: 10px; resize: vertical;
+  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
+}
+
+/* Cartões laterais */
+.criar-post-page .criar-post-card-title {
+  margin: 0; padding: 14px 17px; font-size: 18px; font-weight: 700; color: #252a5a;
+  border-bottom: 1px solid #d8dbe3;
+}
+.criar-post-page .criar-post-card-body { padding: 14px 17px 16px; display: flex; flex-direction: column; gap: 12px; }
+.criar-post-page .criar-post-btn-draft {
+  align-self: flex-start; background: #fff; color: #5bbad8; border: 1px solid #d8dbe3;
+  border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: 14px;
+}
+.criar-post-page .criar-post-meta-row { margin: 0; display: flex; align-items: center; gap: 8px; color: #252a5a; }
+.criar-post-page .criar-post-meta-row strong { font-weight: 600; }
+.criar-post-page .criar-post-link { color: #008fc1; }
+.criar-post-page .criar-post-upload { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.criar-post-page .criar-post-publish-actions {
+  display: flex; justify-content: flex-end; border-top: 1px solid #d8dbe3; padding-top: 12px;
+}
+.criar-post-page .criar-post-btn-publish {
+  background: #252a5a; color: #fff; border: 0; border-radius: 999px; padding: 8px 21px;
+  font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(37, 42, 90, 0.25);
+}
+.criar-post-page .criar-post-btn-publish:disabled { background: #9396ae; cursor: not-allowed; }
+
+.criar-post-page .criar-post-fieldset { border: 0; margin: 0; padding: 14px 17px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.criar-post-page .criar-post-radio { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.criar-post-page .criar-post-radio input { accent-color: #252a5a; margin: 0; }
+
+.criar-post-page .criar-post-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #008fc1;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.criar-post-page .criar-post-link-btn:hover {
+  color: #006b91;
+}
+
+/* Responsivo */
+@media (max-width: 1280px) {
+  .criar-post-page .criar-post-main { padding: 32px 32px 40px; }
+  .criar-post-page .criar-post-grid { grid-template-columns: minmax(0, 1fr) 320px; }
+}
+
+@media (max-width: 1180px) {
+  .criar-post-page .criar-post-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .criar-post-page .criar-post-main {
+    margin-left: 205px;
+  }
+}
+
+@media (max-width: 768px) {
+  .criar-post-page .criar-post-main { margin-left: 0; padding: 24px 16px 32px; }
+}
+@media (max-width: 480px) {
+  .criar-post-page .criar-post-main { padding: 16px 12px 24px; }
+  .criar-post-page .criar-post-heading { font-size: 22px; margin-bottom: 16px; }
+  .criar-post-page .criar-post-title-input { height: 48px; font-size: 18px; }
+  .criar-post-page .criar-post-textarea, .criar-post-page .criar-post-preview { height: 320px; padding: 16px; }
+  .criar-post-page .criar-post-grid, .criar-post-page .criar-post-form, .criar-post-page .criar-post-side { gap: 12px; }
+}
