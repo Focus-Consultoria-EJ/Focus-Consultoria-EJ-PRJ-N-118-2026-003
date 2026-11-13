@@ -17,7 +17,7 @@ function Admin() {
     const [showAdminPassword2, setShowAdminPassword2] = useState(false);
     const [showAdminPassword3, setShowAdminPassword3] = useState(false);
   return (
-    <div className='container'>
+    <div className='container admin-page'>
         <div className='logo'>
             <img src="./src/assets/expandJRLogoAzul.png" alt="Logo azul da ExpandJR" />
         </div>

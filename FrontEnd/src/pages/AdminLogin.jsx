@@ -8,7 +8,7 @@ function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="container">
+    <div className="container login-page">
       <div
         className="logo"
         role="img"

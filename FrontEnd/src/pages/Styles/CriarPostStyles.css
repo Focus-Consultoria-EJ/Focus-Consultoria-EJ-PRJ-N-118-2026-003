@@ -121,15 +121,43 @@
   margin: 0; padding: 14px 17px; font-size: 18px; font-weight: 700; color: #252a5a;
   border-bottom: 1px solid #d8dbe3;
 }
-.criar-post-page .criar-post-card-body { padding: 14px 17px 16px; display: flex; flex-direction: column; gap: 12px; }
+.criar-post-page .criar-post-card-body { padding: 14px 17px 16px; display: flex; 
+  flex-direction: column; gap: 12px; }
 .criar-post-page .criar-post-btn-draft {
-  align-self: flex-start; background: #fff; color: #5bbad8; border: 1px solid #d8dbe3;
-  border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: 14px;
+  align-self: flex-start;
+  background: transparent !important;
+  background-image: none !important;
+  color: #5bbad8;
+  padding: 6px 13px; cursor: pointer; font-size: 14px; border-radius: 0;
+  box-shadow: none;
+}
+.criar-post-page .criar-post-btn-draft:hover,
+.criar-post-page .criar-post-btn-draft:focus,
+.criar-post-page .criar-post-btn-draft:active {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
 }
 .criar-post-page .criar-post-meta-row { margin: 0; display: flex; align-items: center; gap: 8px; color: #252a5a; }
 .criar-post-page .criar-post-meta-row strong { font-weight: 600; }
 .criar-post-page .criar-post-link { color: #008fc1; }
-.criar-post-page .criar-post-upload { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.criar-post-page .criar-post-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.criar-post-page .criar-post-upload:hover,
+.criar-post-page .criar-post-upload:focus,
+.criar-post-page .criar-post-upload:active {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
+}
 .criar-post-page .criar-post-publish-actions {
   display: flex; justify-content: flex-end; border-top: 1px solid #d8dbe3; padding-top: 12px;
 }
@@ -151,7 +179,22 @@
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
-  text-decoration: underline;
+  
+}
+
+.criar-post-page .criar-post-meta-row .criar-post-link-btn {
+  border-radius: 0;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.criar-post-page .criar-post-meta-row .criar-post-link-btn:hover,
+.criar-post-page .criar-post-meta-row .criar-post-link-btn:focus,
+.criar-post-page .criar-post-meta-row .criar-post-link-btn:active {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
 }
 
 .criar-post-page .criar-post-link-btn:hover {

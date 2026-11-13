@@ -107,9 +107,16 @@
   outline: none;
 }
 
+.app-sidebar-logout:focus,
+.app-sidebar-logout:active {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .app-sidebar-admin:hover,
-.app-sidebar-logout:hover{
-    background: rgba(204, 197, 241, 0.12);
+.app-sidebar-logout:hover {
+  background: rgba(204, 197, 241, 0.12);
 }
 
 
