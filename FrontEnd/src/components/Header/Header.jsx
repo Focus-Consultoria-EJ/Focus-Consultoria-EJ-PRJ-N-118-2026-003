@@ -1,21 +1,54 @@
+import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+
 import './Header.css';
 
-export function Header({ transparente = false, mudarPagina }) {
+import expandBrancoLogo from "../../assets/logos/ExpandBranco.png";
+import loginIcon from "../../assets/icons/log-in.svg";
+import menuIcon from "../../assets/icons/menu.svg";
+import closeIcon from "../../assets/icons/x.svg";
+
+export const Header = () => {
+  const location = useLocation();
+  const isTransparent = location.pathname === "/";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <header className={`header ${transparente ? 'header-transparente' : 'header-solido'}`}>
+    <header className={`header ${isTransparent ? 'header-transparent' : 'header-solid'}`}>
+      
       <div className="header-container">
         
-        <nav className="header-nav">
-          <a href="#inicio" onClick={() => mudarPagina('inicio')}>Início</a>
-          <a href="#quem-somos" onClick={() => mudarPagina('quem-somos')}>Quem Somos</a>
-          <a href="#solucoes" onClick={() => mudarPagina('solucoes')}>Soluções</a>
-          <a href="#cases" onClick={() => mudarPagina('cases')}>Cases</a>
-          <a href="#blog" onClick={() => mudarPagina('blog')}>Blog</a>
-          <a href="#contato" onClick={() => mudarPagina('contato')}>Contato</a>
-        </nav>
-        
-      </div>
+        <div className="header-left">
+          <Link to="/" className="logo-link" onClick={closeMenu}>
+            <img src={expandBrancoLogo} alt="ExpandBranco" width="130" />
+          </Link>
+          <Link to="/login" className="btn-login desktop-only">
+            <img src={loginIcon} alt="login" width="16" />
+            Entrar
+          </Link>
+        </div>
 
+        <button className="mobile-menu-btn" onClick={toggleMenu}>
+          <img src={isMenuOpen ? closeIcon : menuIcon} alt="Menu"/>
+        </button>
+
+        <nav className={`header-nav ${isMenuOpen ? "open" : ""}`}>
+          <NavLink to="/" onClick={closeMenu}>Início</NavLink>
+          <NavLink to="/quem-somos" onClick={closeMenu}>Quem Somos</NavLink>
+          <NavLink to="/solucoes" onClick={closeMenu}>Soluções</NavLink>
+          <NavLink to="/cases" onClick={closeMenu}>Cases</NavLink>
+          <NavLink to="/blog" onClick={closeMenu}>Blog</NavLink>
+          <NavLink to="/contato" onClick={closeMenu}>Contato</NavLink>
+
+          <Link to="/login" className="btn-login mobile-only" onClick={closeMenu}>
+            <img src={loginIcon} alt="login" width="16" />
+            Entrar
+          </Link>
+        </nav>
+      </div>
       <div className="header-line" />
     </header>
   );
