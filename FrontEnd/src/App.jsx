@@ -40,6 +40,7 @@ const router = createBrowserRouter([
   { path: '/admin-page', element: <AdminPage /> },
   { path: '/geral-posts', element: <GeralPosts /> },
   { path: '/criar-post', element: <CriarPost /> },
+  { path: '/editar-post/:id', element: <CriarPost /> },
 ]);
 function App() {
   return <RouterProvider router={router} />;

@@ -1,55 +1,266 @@
-.criar-post-page, .criar-post-page *, .criar-post-page *::before, .criar-post-page *::after { box-sizing: border-box; }
+
+/* Configurações gerais */
+.criar-post-page,
+.criar-post-page *,
+.criar-post-page *::before,
+.criar-post-page *::after {
+  box-sizing: border-box;
+}
 
 .criar-post-page {
   min-height: 100vh;
-  background-image: url('../../assets/marcaDagua.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #f7f8fc url('../../assets/marcaDagua.webp') center / cover fixed no-repeat;
   color: #22274f;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   text-align: left;
 }
-.criar-post-page button, .criar-post-page input, .criar-post-page textarea { font-family: inherit; }
+
+.criar-post-page button,
+.criar-post-page input,
+.criar-post-page textarea {
+  font-family: inherit;
+}
+
+.criar-post-page button {
+  transition: background-color .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.criar-post-page button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
 
 .criar-post-page .criar-post-sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-.criar-post-page .criar-post-icon { flex-shrink: 0; }
 
-/* Conteúdo */
-.criar-post-page .criar-post-main { margin-left: 240px; padding: 40px 64px 48px; }
-.criar-post-page .criar-post-heading { margin: 0 0 24px; font-size: 28px; font-weight: 700; color: #252a5a; }
+.criar-post-page .criar-post-icon {
+  flex-shrink: 0;
+}
+
+/* Área principal */
+.criar-post-page .criar-post-main {
+  margin-left: 264px;
+  padding: 38px clamp(20px, 3.6vw, 64px) 56px;
+  min-width: 0;
+}
+
+.criar-post-page .criar-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.criar-post-page .criar-post-header > div:first-child {
+  min-width: 0;
+}
+
+.criar-post-page .criar-post-heading {
+  margin: 0 0 7px;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #252a5a;
+}
+
+.criar-post-page .criar-post-subtitle {
+  margin: 0;
+  color: #59607e;
+  line-height: 1.6;
+}
+
+.criar-post-page .criar-post-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.criar-post-page .criar-post-user-email {
+  font-size: 12px;
+  color: #59607e;
+  margin-right: 4px;
+}
+
+.criar-post-page .criar-post-btn-back,
+.criar-post-page .criar-post-btn-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 18px;
+  border: 1px solid #252a5a;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.criar-post-page .criar-post-btn-back {
+  background: #fff;
+  color: #252a5a;
+}
+
+.criar-post-page .criar-post-btn-back:hover {
+  background: #eef0f7;
+}
+
+.criar-post-page .criar-post-btn-logout {
+  background: #252a5a;
+  color: #fff;
+}
+
+.criar-post-page .criar-post-btn-logout:hover {
+  background: #191e43;
+}
+
+/* Colunas */
 .criar-post-page .criar-post-grid {
-  display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 26px; align-items: start;
-}
-.criar-post-page .criar-post-form, .criar-post-page .criar-post-side {
-  display: flex; flex-direction: column; gap: 16px; min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 26px;
+  align-items: start;
 }
 
-.criar-post-page .criar-post-title-input {
-  width: 100%; height: 60px; padding: 0 18px; border-radius:5px;
-  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
-  font-size: 26px; font-weight: 600;
+.criar-post-page .criar-post-form,
+.criar-post-page .criar-post-side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
 }
-.criar-post-page .criar-post-title-input::placeholder { color: #9396ae; }
-.criar-post-page .criar-post-slug-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* Campos do formulário */
+.criar-post-page .criar-post-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+}
+
+.criar-post-page .criar-post-label {
+  display: block;
+  margin: 0;
+  font-weight: 600;
+  color: #252a5a;
+}
+
+.criar-post-page .criar-post-tittle-input,
+.criar-post-page .criar-post-slug-input,
+.criar-post-page .criar-post-input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #d8dbe3;
+  border-radius: 8px;
+  background: #eceef4;
+  color: #22274f;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Mantém a classe "tittle" usada no JSX */
+.criar-post-page .criar-post-tittle-input {
+  min-height: 60px;
+  padding: 12px 18px;
+  font-size: 23px;
+  font-weight: 600;
+}
+
 .criar-post-page .criar-post-slug-input {
-  width: 185px; max-width: 100%; height: 32px; padding: 0 12px; border-radius: 10px;
-  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
+  min-height: 42px;
 }
 
-/* Editor */
-.criar-post-page .criar-post-editor, .criar-post-page .criar-post-card {
-  background: #fff; border-radius: 10px; overflow: hidden;
-  box-shadow: 0 6px 18px rgba(37, 42, 90, 0.12);
+.criar-post-page .criar-post-tittle-input:focus,
+.criar-post-page .criar-post-slug-input:focus,
+.criar-post-page .criar-post-input:focus,
+.criar-post-page .criar-post-summary:focus {
+  border-color: #7285b5;
+  box-shadow: 0 0 0 3px rgba(89, 114, 176, .14);
 }
+
+.criar-post-page .criar-post-tittle-input::placeholder,
+.criar-post-page .criar-post-slug-input::placeholder,
+.criar-post-page .criar-post-input::placeholder {
+  color: #9296ac;
+}
+
+.criar-post-page .criar-post-help {
+  margin: 0;
+  color: #646b87;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Editor Markdown */
+.criar-post-page .criar-post-editor,
+.criar-post-page .criar-post-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37, 42, 90, .12);
+}
+
 .criar-post-page .criar-post-editor-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 28px 10px 17px; border-bottom: 1px solid #d8dbe3; font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 17px;
+  border-bottom: 1px solid #d8dbe3;
+}
+
+.criar-post-page .criar-post-editor-header h2 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #252a5a;
+}
+
+.criar-post-page .criar-post-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.criar-post-page .criar-post-tab {
+  border: 0;
+  border-radius: 10px;
+  padding: 7px 13px;
+  background: transparent;
+  color: #252a5a;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.criar-post-page .criar-post-tab[aria-selected='true'] {
+  background: #e3e5ec;
+  font-weight: 600;
+}
+
+.criar-post-page .criar-post-tab:hover {
+  background: #eef0f5;
 }
 
 .criar-post-page .criar-post-toolbar {
@@ -68,8 +279,8 @@
   height: 36px;
   padding: 0;
   border: 0;
-  border-radius: 10px;
-  background: none;
+  border-radius: 9px;
+  background: transparent;
   color: #22274f;
   cursor: pointer;
 }
@@ -83,147 +294,310 @@
   outline-offset: -2px;
 }
 
-@media (max-width: 480px) {
-  .criar-post-page .criar-post-tool {
-    width: 40px;
-    height: 40px;
-  }
+.criar-post-page .criar-post-textarea,
+.criar-post-page .criar-post-preview {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  height: 448px;
+  padding: 22px 21px;
+  border: 0;
+  outline: none;
+  color: #22274f;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
-.criar-post-page .criar-post-tabs { display: flex; gap: 4px; }
-.criar-post-page .criar-post-tab {
-  border: 0; background: none; color: #22274f; border-radius: 10px;
-  padding: 5px 14px; cursor: pointer; font-size: 14px;
+.criar-post-page .criar-post-textarea {
+  resize: vertical;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
 }
-.criar-post-page .criar-post-tab[aria-selected='true'] { background: #e3e5ec; font-weight: 500; }
-.criar-post-page .criar-post-textarea, .criar-post-page .criar-post-preview {
-  display: block; width: 100%; height: 448px; padding: 22px 21px; border: 0; resize: vertical;
-  font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.6; color: #22274f;
+
+.criar-post-page .criar-post-textarea::placeholder {
+  color: #8b8fa3;
 }
-.criar-post-page .criar-post-textarea { outline: none; }
-.criar-post-page .criar-post-textarea::placeholder { color: #8b8fa3; }
-.criar-post-page .criar-post-preview { overflow: auto; font-family: inherit; line-height: 1.6; word-break: break-word; }
+
+.criar-post-page .criar-post-preview {
+  overflow: auto;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+}
+
+.criar-post-page .criar-post-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.criar-post-page .criar-post-preview pre {
+  overflow-x: auto;
+}
+
 .criar-post-page .criar-post-editor-footer {
-  border-top: 1px solid #d8dbe3; padding: 10px 17px 12px; font-size: 12px; color: #4a4f72;
+  border-top: 1px solid #d8dbe3;
+  padding: 10px 17px 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #4a4f72;
 }
-.criar-post-page .criar-post-editor-footer p { margin: 0 0 8px; }
-.criar-post-page .criar-post-editor-footer p:last-child { margin: 0; }
-.criar-post-page .criar-post-editor-footer code { font-family: ui-monospace, Menlo, Consolas, monospace; }
 
-.criar-post-page .criar-post-summary-label { font-weight: 600; font-size: 14px; margin-bottom: -8px; }
+.criar-post-page .criar-post-editor-footer p {
+  margin: 0 0 8px;
+}
+
+.criar-post-page .criar-post-editor-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.criar-post-page .criar-post-editor-footer code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.criar-post-page .criar-post-summary-label {
+  display: block;
+  margin-bottom: -10px;
+  font-weight: 600;
+}
+
 .criar-post-page .criar-post-summary {
-  width: 100%; height: 90px; padding: 12px 16px; border-radius: 10px; resize: vertical;
-  border: 1px solid #d8dbe3; background: #eceef4; color: #22274f;
+  display: block;
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 16px;
+  border: 1px solid #d8dbe3;
+  border-radius: 10px;
+  background: #eceef4;
+  color: #22274f;
+  resize: vertical;
+  outline: none;
 }
 
-/* Cartões laterais */
+/* Cartões da barra lateral */
 .criar-post-page .criar-post-card-title {
-  margin: 0; padding: 14px 17px; font-size: 18px; font-weight: 700; color: #252a5a;
+  margin: 0;
+  padding: 14px 17px;
   border-bottom: 1px solid #d8dbe3;
+  color: #252a5a;
+  font-size: 18px;
+  font-weight: 700;
 }
-.criar-post-page .criar-post-card-body { padding: 14px 17px 16px; display: flex; 
-  flex-direction: column; gap: 12px; }
+
+.criar-post-page .criar-post-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 14px 17px 16px;
+}
+
 .criar-post-page .criar-post-btn-draft {
   align-self: flex-start;
-  background: transparent !important;
-  background-image: none !important;
-  color: #5bbad8;
-  padding: 6px 13px; cursor: pointer; font-size: 14px; border-radius: 0;
+  padding: 5px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #36a9ce;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
   box-shadow: none;
 }
-.criar-post-page .criar-post-btn-draft:hover,
-.criar-post-page .criar-post-btn-draft:focus,
-.criar-post-page .criar-post-btn-draft:active {
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none;
+
+.criar-post-page .criar-post-btn-draft:hover {
+  color: #008fc1;
+  text-decoration: underline;
 }
-.criar-post-page .criar-post-meta-row { margin: 0; display: flex; align-items: center; gap: 8px; color: #252a5a; }
-.criar-post-page .criar-post-meta-row strong { font-weight: 600; }
-.criar-post-page .criar-post-link { color: #008fc1; }
-.criar-post-page .criar-post-upload {
-  display: inline-flex;
+
+.criar-post-page .criar-post-meta-row {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  color: #252a5a;
+  line-height: 1.6;
 }
 
-.criar-post-page .criar-post-upload:hover,
-.criar-post-page .criar-post-upload:focus,
-.criar-post-page .criar-post-upload:active {
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none;
+.criar-post-page .criar-post-meta-row strong {
+  font-weight: 600;
 }
+
+.criar-post-page .criar-post-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.criar-post-page .criar-post-radio input {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: #252a5a;
+}
+
 .criar-post-page .criar-post-publish-actions {
-  display: flex; justify-content: flex-end; border-top: 1px solid #d8dbe3; padding-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #d8dbe3;
+  padding-top: 14px;
 }
-.criar-post-page .criar-post-btn-publish {
-  background: #252a5a; color: #fff; border: 0; border-radius: 999px; padding: 8px 21px;
-  font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(37, 42, 90, 0.25);
-}
-.criar-post-page .criar-post-btn-publish:disabled { background: #9396ae; cursor: not-allowed; }
 
-.criar-post-page .criar-post-fieldset { border: 0; margin: 0; padding: 14px 17px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.criar-post-page .criar-post-radio { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-.criar-post-page .criar-post-radio input { accent-color: #252a5a; margin: 0; }
+.criar-post-page .criar-post-btn-publish {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 22px;
+  background: #252a5a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 42, 90, .2);
+}
+
+.criar-post-page .criar-post-btn-publish:hover:not(:disabled) {
+  background: #191e43;
+}
+
+.criar-post-page .criar-post-btn-publish:disabled {
+  background: #9396ae;
+}
+
+.criar-post-page .criar-post-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  margin: 0;
+  padding: 14px 17px 16px;
+  border: 0;
+}
+
+.criar-post-page .criar-post-fieldset:disabled {
+  opacity: .7;
+}
 
 .criar-post-page .criar-post-link-btn {
-  background: none;
-  border: none;
+  align-self: flex-start;
   padding: 0;
-  color: #008fc1;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  
-}
-
-.criar-post-page .criar-post-meta-row .criar-post-link-btn {
+  border: 0;
   border-radius: 0;
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none;
-}
-
-.criar-post-page .criar-post-meta-row .criar-post-link-btn:hover,
-.criar-post-page .criar-post-meta-row .criar-post-link-btn:focus,
-.criar-post-page .criar-post-meta-row .criar-post-link-btn:active {
-  background: transparent !important;
-  background-image: none !important;
+  background: transparent;
+  color: #008fc1;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
   box-shadow: none;
 }
 
 .criar-post-page .criar-post-link-btn:hover {
   color: #006b91;
+  text-decoration: underline;
 }
 
-/* Responsivo */
-@media (max-width: 1280px) {
-  .criar-post-page .criar-post-main { padding: 32px 32px 40px; }
-  .criar-post-page .criar-post-grid { grid-template-columns: minmax(0, 1fr) 320px; }
+.criar-post-page .criar-post-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
-@media (max-width: 1180px) {
-  .criar-post-page .criar-post-grid { grid-template-columns: minmax(0, 1fr); }
+.criar-post-page .criar-post-card-body > img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 1360px) {
+  .criar-post-page .criar-post-main {
+    padding: 32px 28px 44px;
+  }
+
+  .criar-post-page .criar-post-grid {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .criar-post-page .criar-post-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .criar-post-page .criar-post-side {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
 }
 
 @media (max-width: 900px) {
   .criar-post-page .criar-post-main {
     margin-left: 205px;
+    padding: 28px 20px 36px;
+  }
+
+  .criar-post-page .criar-post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .criar-post-page .criar-post-header-actions {
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 768px) {
-  .criar-post-page .criar-post-main { margin-left: 0; padding: 24px 16px 32px; }
+  .criar-post-page .criar-post-main {
+    margin-left: 0;
+    padding: 24px 16px 32px;
+  }
+
+  .criar-post-page .criar-post-side {
+    display: flex;
+  }
 }
+
 @media (max-width: 480px) {
-  .criar-post-page .criar-post-main { padding: 16px 12px 24px; }
-  .criar-post-page .criar-post-heading { font-size: 22px; margin-bottom: 16px; }
-  .criar-post-page .criar-post-title-input { height: 48px; font-size: 18px; }
-  .criar-post-page .criar-post-textarea, .criar-post-page .criar-post-preview { height: 320px; padding: 16px; }
-  .criar-post-page .criar-post-grid, .criar-post-page .criar-post-form, .criar-post-page .criar-post-side { gap: 12px; }
+  .criar-post-page .criar-post-main {
+    padding: 18px 12px 28px;
+  }
+
+  .criar-post-page .criar-post-heading {
+    font-size: 23px;
+  }
+
+  .criar-post-page .criar-post-tittle-input {
+    font-size: 18px;
+    min-height: 50px;
+  }
+
+  .criar-post-page .criar-post-editor-header {
+    flex-wrap: wrap;
+  }
+
+  .criar-post-page .criar-post-editor-header h2 {
+    font-size: 17px;
+  }
+
+  .criar-post-page .criar-post-textarea,
+  .criar-post-page .criar-post-preview {
+    height: 320px;
+    min-height: 320px;
+    padding: 16px;
+  }
+
+  .criar-post-page .criar-post-tool {
+    width: 40px;
+    height: 40px;
+  }
+
+  .criar-post-page .criar-post-header-actions {
+    gap: 8px;
+  }
+
+  .criar-post-page .criar-post-user-email {
+    width: 100%;
+  }
 }

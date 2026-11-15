@@ -539,3 +539,180 @@ margin-top: -20px;
   border-radius: 0;
   box-shadow: none;
 }
+
+
+/* =========================================
+   MODAL DE CONFIRMAÇÃO DE EXCLUSÃO
+   ========================================= */
+
+.posts-page .posts-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(15, 20, 45, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.posts-page .posts-modal {
+  width: 100%;
+  max-width: 440px;
+  padding: 32px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15, 20, 45, 0.2);
+
+  text-align: left;
+  animation: posts-modal-enter 180ms ease-out;
+}
+
+.posts-page .posts-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+  margin-bottom: 20px;
+
+  color: #d82c35;
+  background: #fff0f0;
+  border-radius: 14px;
+}
+
+.posts-page .posts-modal h2 {
+  margin: 0 0 12px;
+  color: #252a5a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.posts-page .posts-modal p {
+  margin: 0 0 12px;
+  color: #656a7d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.posts-page .posts-modal strong {
+  color: #252a5a;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.posts-page .posts-modal .posts-modal-warning {
+  color: #c52b35;
+  font-size: 13px;
+}
+
+.posts-page .posts-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ebf0;
+}
+
+.posts-page .posts-modal-actions button {
+  min-height: 43px;
+  padding: 10px 20px;
+
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.posts-page .posts-modal-cancel {
+  color: #252a5a;
+  background: #f1f2f7;
+  border: 1px solid #e1e3eb;
+}
+
+.posts-page .posts-modal-cancel:hover {
+  background: #e6e8f0;
+}
+
+.posts-page .posts-modal-confirm {
+  color: #ffffff;
+  background: #d82c35;
+  border: 1px solid #d82c35;
+}
+
+.posts-page .posts-modal-confirm:hover {
+  background: #bd222c;
+  transform: translateY(-1px);
+}
+
+.posts-page .posts-modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.posts-page .posts-modal-actions button:focus-visible {
+  outline: 3px solid rgba(0, 143, 193, 0.35);
+  outline-offset: 3px;
+}
+
+@keyframes posts-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-page .posts-modal {
+    padding: 24px 20px;
+  }
+
+  .posts-page .posts-modal h2 {
+    font-size: 20px;
+  }
+
+  .posts-page .posts-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .posts-page .posts-modal-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .posts-page .posts-modal {
+    animation: none;
+  }
+}
+
+.posts-page td[data-label="Autor"] {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.posts-page th:nth-child(2) {
+  width: 180px;
+  text-align: center;
+}
