@@ -11,25 +11,49 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 80px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, auto) auto;
+  align-items: center;
+  column-gap: 48px;
+  row-gap: 32px;
+}
+
+.footer-brand {
   display: flex;
-  justify-content: space-between;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
   align-items: center;
 }
 
+.footer-logo img {
+  display: block;
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+}
 
-.footer-left p {
+.footer-brand p {
   font-size: 14px;
   line-height: 1.5;
   color: #ffffffd8;
   margin: 0;
   max-width: 350px;
-  text-align: left; 
+  text-align: left;
 }
 
 
 .footer-nav {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 12px;
+  align-items: center;
 }
 
 .footer-nav a {
@@ -47,8 +71,16 @@
 
 .footer-social {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
 }
 
 .footer-social img {
@@ -75,4 +107,63 @@
   margin: 0;
   font-size: 12px;
   color: #ffffffa8;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    padding: 48px 32px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 32px;
+    row-gap: 28px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-nav {
+    column-gap: 20px;
+    row-gap: 14px;
+  }
+
+  .footer-bottom {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    padding: 36px 20px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    row-gap: 28px;
+  }
+
+  .footer-brand {
+    gap: 14px;
+  }
+
+  .footer-logo img {
+    width: 145px;
+  }
+
+  .footer-nav {
+    column-gap: 22px;
+    row-gap: 16px;
+  }
+
+  .footer-nav a {
+    font-size: 14px;
+    padding: 2px 0;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .footer-bottom {
+    padding: 12px 20px;
+  }
 }

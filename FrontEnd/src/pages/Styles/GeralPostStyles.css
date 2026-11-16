@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.logo{
+margin-top: -20px;
+}
+
 .posts-page {
   position: fixed; 
   top: 0;
@@ -12,31 +16,28 @@
   width: 100vw; 
   height: 100vh;
   text-align: left;
-  background-color: #f1f2f7;
+  background-image: url('../../assets/marcaDagua.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #22274f;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   overflow-y: auto; 
   overflow-x: hidden;
 }
 
-.posts-page h1 {
-  margin: 0 0 22px;
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.5px;
-  color: #22274f;
-
+.posts-page button,
+.posts-page input {
+  font-family: inherit;
 }
 
-.posts-page .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 240px;
-  padding: 23px 19px;
-  color: #fff;
-  background: #252a5a;
+.posts-page h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #252a5a;
 }
 
 .posts-page .content {
@@ -45,7 +46,6 @@
   min-height: 100vh;
   margin-left: 240px;
   padding: 35px 40px;
-  background: #f1f2f7;
 }
 
 .posts-page .post-tools {
@@ -75,8 +75,8 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-  height: 17px;
-  width: 17px;
+  height: 18px;
+  width: 18px;
 }
 
 .posts-page .search-field {
@@ -90,7 +90,7 @@
   height: 42px;
   padding: 0 17px;
   border: 1px solid #d7d9e2;
-  border-radius: 999px;
+  border-radius: 5px;
   color: #252a5a;
   background: #fff;
   font-size: 14px;
@@ -109,7 +109,7 @@
 .posts-page .sidebar nav {
   display: grid;
   gap: 3px;
-  margin-top: 36px;
+  margin-top: 50px;
 }
 
 .posts-page .nav-item {
@@ -165,7 +165,7 @@
   color: #fff;
   background: #252a5a;
   box-shadow: 0 6px 13px rgb(37 42 90 / 17%);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   transition:
     transform 160ms ease,
@@ -196,7 +196,7 @@
   border-bottom: 1px solid transparent;
   color: #008fc1;
   background: transparent;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -207,10 +207,9 @@
 
 .posts-page .table-card {
   overflow: hidden;
-  border: 1px solid #d8dbe3;
+
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 15px 23px rgb(50 58 83 / 14%);
 }
 
 .posts-page .table-scroll {
@@ -222,7 +221,7 @@
   min-width: 700px;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .posts-page th,
@@ -300,7 +299,7 @@
   min-width: 72px;
   padding: 3px 10px;
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
@@ -323,6 +322,22 @@
   line-height: 1.5;
 }
 
+.posts-page .date-cell-details {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.posts-page .date-cell-label {
+  color: #656a7d;
+  font-size: 12px;
+}
+
+.posts-page .date-cell-day,
+.posts-page .date-cell-time {
+  color: #24294f;
+}
+
 .posts-page .actions-cell {
   white-space: normal;
   text-align: center;
@@ -332,7 +347,7 @@
   padding: 3px 5px;
   border: 0;
   background: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .posts-page .delete-button {
@@ -395,10 +410,6 @@
 }
 
 @media (max-width: 900px) {
-  .posts-page .sidebar {
-    width: 205px;
-  }
-
   .posts-page .content {
     width: calc(100% - 205px);
     margin-left: 205px;
@@ -412,26 +423,6 @@
     height: auto;
     min-height: 100vh;
     overflow-x: hidden;
-  }
-
-  .posts-page .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 16px;
-  }
-
-  .posts-page .sidebar nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .posts-page .nav-item {
-    width: auto;
-    justify-content: center;
   }
 
   .posts-page .content {
@@ -453,7 +444,7 @@
   .posts-page .tabs {
     justify-content: flex-start;
     overflow-x: auto;
-    white-space: nowrap;
+    
     padding-bottom: 5px;
   }
 
@@ -496,6 +487,10 @@
     text-align: right;
   }
 
+  .posts-page tbody td.date-cell .date-cell-details {
+    justify-items: end;
+  }
+
   .posts-page tbody td::before {
     content: attr(data-label);
     flex: 0 0 auto;
@@ -525,7 +520,7 @@
 
 @media (max-width: 480px) {
   .posts-page h1 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 16px;
   }
 
@@ -536,4 +531,188 @@
   .posts-page .nav-item {
     width: 100%;
   }
+}
+
+.posts-page .tab,
+.posts-page .post-title,
+.posts-page .delete-button {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+/* =========================================
+   MODAL DE CONFIRMAÇÃO DE EXCLUSÃO
+   ========================================= */
+
+.posts-page .posts-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(15, 20, 45, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.posts-page .posts-modal {
+  width: 100%;
+  max-width: 440px;
+  padding: 32px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15, 20, 45, 0.2);
+
+  text-align: left;
+  animation: posts-modal-enter 180ms ease-out;
+}
+
+.posts-page .posts-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+  margin-bottom: 20px;
+
+  color: #d82c35;
+  background: #fff0f0;
+  border-radius: 14px;
+}
+
+.posts-page .posts-modal h2 {
+  margin: 0 0 12px;
+  color: #252a5a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.posts-page .posts-modal p {
+  margin: 0 0 12px;
+  color: #656a7d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.posts-page .posts-modal strong {
+  color: #252a5a;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.posts-page .posts-modal .posts-modal-warning {
+  color: #c52b35;
+  font-size: 13px;
+}
+
+.posts-page .posts-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ebf0;
+}
+
+.posts-page .posts-modal-actions button {
+  min-height: 43px;
+  padding: 10px 20px;
+
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.posts-page .posts-modal-cancel {
+  color: #252a5a;
+  background: #f1f2f7;
+  border: 1px solid #e1e3eb;
+}
+
+.posts-page .posts-modal-cancel:hover {
+  background: #e6e8f0;
+}
+
+.posts-page .posts-modal-confirm {
+  color: #ffffff;
+  background: #d82c35;
+  border: 1px solid #d82c35;
+}
+
+.posts-page .posts-modal-confirm:hover {
+  background: #bd222c;
+  transform: translateY(-1px);
+}
+
+.posts-page .posts-modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.posts-page .posts-modal-actions button:focus-visible {
+  outline: 3px solid rgba(0, 143, 193, 0.35);
+  outline-offset: 3px;
+}
+
+@keyframes posts-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-page .posts-modal {
+    padding: 24px 20px;
+  }
+
+  .posts-page .posts-modal h2 {
+    font-size: 20px;
+  }
+
+  .posts-page .posts-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .posts-page .posts-modal-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .posts-page .posts-modal {
+    animation: none;
+  }
+}
+
+.posts-page td[data-label="Autor"] {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.posts-page th:nth-child(2) {
+  width: 180px;
+  text-align: center;
 }
