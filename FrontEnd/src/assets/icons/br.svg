@@ -1,0 +1,14 @@
+<svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1.5" y="1.5" width="69" height="45" rx="22.5" fill="white" stroke="#232650" stroke-width="3"/>
+  <text
+    x="36"
+    y="30"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="22"
+    font-weight="700"
+    fill="#232650"
+  >
+    BR
+  </text>
+</svg>
