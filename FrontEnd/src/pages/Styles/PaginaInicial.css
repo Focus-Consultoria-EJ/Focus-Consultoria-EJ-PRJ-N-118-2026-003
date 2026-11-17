@@ -1,0 +1,20 @@
+.home-page, 
+.home-page *,
+.home-page *::before,
+.home-page *::after {
+    box-sizing: border-box;
+}
+
+.home-page {
+    --home-header-h: 60px;
+    --home-navy: #232650;
+    --home-navy-deep: #1f2b57;
+    --home-blue: #1870b1;
+    --home-accent: #0486d3;
+    --home-bg: #eef0f3;
+    --home-text-light: #f8fafc;
+    background: var(--home-bg);
+    color: var(--home-navy);
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+}
