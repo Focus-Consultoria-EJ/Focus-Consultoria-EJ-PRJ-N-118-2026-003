@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+@import './index.css';
+
+.container{
+    min-height:100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    background-color: var(--bg);
+}
+
+.main_container{
+    background :radial-gradient(120% 80% at 10% 10%, oklch(55% .13 245/.7), transparent 60%), linear-gradient(120deg, #1666AA 0%, #1e3a71 55%, oklch(30% .08 270) 100%);
+    text-align: center;
+    padding: 50px 120px 50px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.main_container h1 {
+    color: white;
+    text-shadow: oklch(19.931% 0.04982 275.773 / 0.432) 0px 2px 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.caixas{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.resumo{
+    background-color: var(--bg);
+    width: 50%;
+    border-radius: 30px;
+    padding: 30px;
+    height: fit-content;
+}
+
+.resumo p, span{
+    font-size: 18px;
+    text-align: justify;
+    color: rgb(51, 51, 51);
+}
+
+.texto-colorido{
+    color: #0486d3;
+    font-size: 18px;
+}
+
+.mais_recente{
+    background-color: #252858;
+    border-radius: 30px;
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.mais_recente:hover{
+    transform: scale(1.05);
+}
+
+.mais_recente h2{
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: justify;
+    
+}
+
+.mais_recente p{
+    color: white;
+}
+
+.img-recentes{
+    width: 100%;
+    height: 246px;
+    border-radius: 30px;
+}
+
+.categoria{
+    background-color: #0486d3;
+    width: fit-content;
+    border-radius: 30px;
+    padding: 5px;
+    font-weight: 800;
+    color: white !important;
+}
+
+.categ_ler{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.select-buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.selected-button{
+    width: fit-content;
+    padding: 5px;
+}
+
+.sem-artigo {
+    grid-column: 1 / -1; 
+    text-align: center;
+}
+
+.artigos_container{
+    background-color: var(--bg);
+    display: flex;
+    gap: 20px;
+    padding: 50px 120px 50px 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.artigo{
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: oklch(19.931% 0.04982 275.773 / 0.432) 0px 2px 10px;
+    transition: all 0.3s ease; 
+}
+
+.artigo:hover{
+    transform: scale(1.05);
+}
+
+.artigo:hover h2{
+    color: #0486d3;
+}
+
+.artigo img{
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+}
+
+.texto-artigo{
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    text-align: left;
+    gap: 5px;
+}
+
+.texto-artigo h2{
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.texto-artigo p{
+    text-align: left;
+    font-size: 14px;
+}
+
+@media (max-width:480px){
+
+    .container{
+        gap: 50px;
+    }
+
+    .main_container{
+        padding: 50px 15px ;
+    }
+
+    .caixas{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .resumo, .mais_recente{
+        width: 100%;
+    }
+
+    .resumo p span{
+        font-size: 14px;
+    }
+
+    .mais_recente p{
+        font-size: 14px;
+    }
+
+    .select-buttons{
+        display: grid;
+        
+        grid-template-columns:1fr 1fr;
+    }   
+
+    .selected-button{
+        width: 100%;
+    }
+
+    .artigos_container{
+        grid-template-columns: 1fr !important;
+        padding: 0;
+    }
+}
+
+@media (max-width:768px){
+
+    .container{
+        gap: 50px;
+    }
+
+    .main_container{
+        padding: 50px 30px ;
+    }
+
+    .caixas{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .resumo, .mais_recente{
+        width: 100%;
+    }
+
+    .resumo p span{
+        font-size: 14px;
+    }
+
+
+    .artigos_container{
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .artigo{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1300px){
+    .container{
+        gap: 50px;
+    }
+
+    .main_container{
+        padding: 50px 30px ;
+    }
+
+    .caixas{
+        
+        width: 100%;
+    }
+
+    .resumo, .mais_recente{
+        width: 100%;
+    }
+
+    .resumo p span{
+        font-size: 14px;
+    }
+
+
+    .artigos_container{
+        grid-template-columns: 1fr 1fr;
+        padding: 30px;
+    }
+
+    .artigo{
+        width: 100%;
+    }
+}
