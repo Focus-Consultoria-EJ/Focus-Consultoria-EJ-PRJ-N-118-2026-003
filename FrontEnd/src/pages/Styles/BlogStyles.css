@@ -103,6 +103,21 @@ a{
     margin: 10px;
 }
 
+.select-buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.selected-button{
+    width: fit-content;
+    padding: 5px;
+}
+
+.sem-artigo {
+    grid-column: 1 / -1; 
+    text-align: center;
+}
+
 .artigos_container{
     background-color: var(--bg);
     display: flex;
@@ -179,6 +194,16 @@ a{
 
     .mais_recente p{
         font-size: 14px;
+    }
+
+    .select-buttons{
+        display: grid;
+        
+        grid-template-columns:1fr 1fr;
+    }   
+
+    .selected-button{
+        width: 100%;
     }
 
     .artigos_container{
