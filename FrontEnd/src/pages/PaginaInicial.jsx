@@ -1,10 +1,10 @@
-function PaginaInicial() {
+import HeroSection from '../components/Home/HeroSection/HeroSection';
+import './Styles/PaginaInicial.css';
+
+export default function PaginaInicial() {
   return (
-    <div>
-      <h1>Página Inicial da Expand Jr</h1>
+    <div className="home-page">
+      <HeroSection />
     </div>
   );
 }
-
-
-export default PaginaInicial;
