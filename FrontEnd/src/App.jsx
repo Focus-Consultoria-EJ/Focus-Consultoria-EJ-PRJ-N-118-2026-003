@@ -10,6 +10,7 @@ import PaginaInicial from './pages/PaginaInicial.jsx'
 import CriarPost from './pages/CriarPost.jsx'
 import { Header } from './components/Header/Header.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
+import AdminProtectedRoute from './components/Admin/AdminProtectedRoute.jsx'
 
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
@@ -37,10 +38,17 @@ const router = createBrowserRouter([
   },
   { path: '/login', element: <LoginPage /> },
   { path: '/admin-login', element: <AdminLogin /> },
-  { path: '/admin-page', element: <AdminPage /> },
+  {
+    element: <AdminProtectedRoute />,
+    children: [
+      { path: '/admin-page', element: <AdminPage /> },
+    ],
+  },
   { path: '/geral-posts', element: <GeralPosts /> },
   { path: '/criar-post', element: <CriarPost /> },
+  { path: '/editar-post/:id', element: <CriarPost /> },
 ]);
+
 function App() {
   return <RouterProvider router={router} />;
 }
