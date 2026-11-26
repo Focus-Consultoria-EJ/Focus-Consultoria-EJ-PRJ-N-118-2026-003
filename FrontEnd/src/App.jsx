@@ -3,7 +3,7 @@ import AdminLogin from './pages/AdminLogin.jsx'
 import AdminPage from './pages/AdminPage.jsx'
 import GeralPosts from './pages/GeralPosts.jsx'
 import { QuemSomos } from './pages/QuemSomos.jsx'
-import { Solucoes } from './pages/Solucoes.jsx';
+import  Solucoes  from './pages/Solucoes.jsx';
 import Contato from './pages/Contato.jsx'
 import Blog from './pages/Blog.jsx'
 import PaginaInicial from './pages/PaginaInicial.jsx'
