@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -659,36 +658,100 @@ export default function CriarPost() {
     });
   }
 
-  function applyAction(actionId) {
-    const textarea = textareaRef.current;
+  
+function applyAction(actionId) {
+  const textarea = textareaRef.current;
 
-    if (!textarea) return;
+  if (!textarea) return;
 
-    const action = actions[actionId];
+  const action = actions[actionId];
 
-    if (!action) return;
+  if (!action) return;
 
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selectedText = content.slice(start, end);
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
 
-    const result = action(selectedText);
+  const result = action(content, start, end);
 
-    const newContent =
-      content.slice(0, start) +
-      result +
+  setContent(result.text);
+
+  requestAnimationFrame(() => {
+    textarea.focus();
+
+    textarea.setSelectionRange(
+      result.selStart,
+      result.selEnd
+    );
+  });
+}
+
+
+function handleEditorKeyDown(event) {
+  if (event.key !== 'Enter' || event.shiftKey || event.nativeEvent.isComposing) return;
+
+  const textarea = event.currentTarget;
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+
+  const lineStart =
+    start === 0 ? 0 : content.lastIndexOf('\n', start - 1) + 1;
+
+  const currentLine = content.slice(lineStart, start);
+
+  const orderedList = currentLine.match(/^(\d+)\. (.*)$/);
+  const unorderedList = currentLine.match(/^- (.*)$/);
+  const quote = currentLine.match(/^> (.*)$/);
+
+  let prefix = '';
+  let itemText = '';
+
+  if (orderedList) {
+    prefix = `${Number(orderedList[1]) + 1}. `;
+    itemText = orderedList[2];
+  } else if (unorderedList) {
+    prefix = '- ';
+    itemText = unorderedList[1];
+  } else if (quote) {
+    prefix = '> ';
+    itemText = quote[1];
+  } else {
+    return;
+  }
+
+  event.preventDefault();
+
+  let newContent;
+  let cursorPosition;
+
+  if (!itemText.trim()) {
+    newContent =
+      content.slice(0, lineStart) +
       content.slice(end);
 
-    setContent(newContent);
+    cursorPosition = lineStart;
+  } else {
+    const insertion = '\n' + prefix;
 
-    requestAnimationFrame(() => {
-      textarea.focus();
-      textarea.setSelectionRange(
-        start,
-        start + result.length
-      );
-    });
+    newContent =
+      content.slice(0, start) +
+      insertion +
+      content.slice(end);
+
+    cursorPosition = start + insertion.length;
   }
+
+  setContent(newContent);
+
+  requestAnimationFrame(() => {
+    textarea.focus();
+    textarea.setSelectionRange(
+      cursorPosition,
+      cursorPosition
+    );
+  });
+}
+
+
 
   function removerCapa() {
     setArquivoCapa(null);
@@ -959,6 +1022,7 @@ export default function CriarPost() {
                       onChange={(e) =>
                         setContent(e.target.value)
                       }
+                      onKeyDown={handleEditorKeyDown}
                       disabled={saving}
                     />
                   </div>
